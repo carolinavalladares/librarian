@@ -12,10 +12,12 @@
     {{-- Load js --}}
     @vite('resources/js/app.js')
 </head>
-    <body>
+    <body class="px-4 py-10">
         
 
-        @yield('content')
+        <div class="max-w-4xl m-auto">
+            @yield('content')
+        </div>
 
 
     </body>
