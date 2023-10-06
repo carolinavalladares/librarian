@@ -9,7 +9,7 @@
     {{-- Load tailwindcss --}}
     @vite('resources/css/app.css')
 
-    {{-- Load tailwindcss --}}
+    {{-- Load js --}}
     @vite('resources/js/app.js')
 </head>
     <body>
