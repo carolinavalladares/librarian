@@ -30,7 +30,7 @@
                 <label class="text-sm leading-none mb-2" for='name' >Nome do autor:</label>
                 <input placeholder="Digite o nome do autor..." class="border h-9 px-4 text-sm" type="text" name="name" id="name" >
             </div>
-            <input title="cadastrar autor" class="h-9 flex items-center justify-center px-2 bg-orange-500 text-white font-medium cursor-pointer"  type="submit" value="Cadastrar">
+            <input title="cadastrar" class="h-9 flex items-center justify-center px-2 bg-orange-500 text-white font-medium cursor-pointer"  type="submit" value="Cadastrar">
         </div>
         
     </form>

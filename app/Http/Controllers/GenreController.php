@@ -18,7 +18,7 @@ class GenreController extends Controller
 
     }
 
-    public function registerGenre(Request $request)
+    public function create(Request $request)
     {
 
         $data = ['name' => strtoupper($request->name)];

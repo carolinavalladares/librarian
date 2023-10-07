@@ -16,7 +16,7 @@ class PublisherController extends Controller
         return view('dashboard.publishers', ['publishers' => $publishers, 'user' => $user]);
     }
 
-    public function registerPublisher(Request $request)
+    public function create(Request $request)
     {
 
         $data = ['name' => strtoupper($request->name)];

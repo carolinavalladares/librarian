@@ -29,12 +29,12 @@
                 <label class="text-sm leading-none mb-2" for='name' >Nome da categoria:</label>
                 <input placeholder="Digite o nome da categoria..." class="border h-9 px-4 text-sm" type="text" name="name" id="name" >
             </div>
-            <input title="cadastrar categoria" class="h-9 flex items-center justify-center px-2 bg-orange-500 text-white font-medium cursor-pointer"  type="submit" value="Cadastrar">
+            <input title="cadastrar" class="h-9 flex items-center justify-center px-2 bg-orange-500 text-white font-medium cursor-pointer"  type="submit" value="Cadastrar">
         </div>
         
     </form>
 
-    {{-- author list --}}
+    {{-- genre list --}}
     <div class="mt-2">
         <div class="flex items-center justify-between">
             <h2 class="font-semibold">Categorias</h2>

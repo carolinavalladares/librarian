@@ -20,8 +20,9 @@ class Book extends Model
         'pages',
         'rating',
         'quantity',
+        'published_date',
         'author_id',
-        'published_id',
+        'publisher_id',
         'genre_id',
 
     ];

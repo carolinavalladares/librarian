@@ -15,7 +15,10 @@
                  <a title="editoras" class="w-full h-7 flex items-center justify-center font-medium" href="{{route('publishers')}}">Editoras</a>
              </li>
              <li >
-                 <a title="gêneros" class="w-full h-7 flex items-center justify-center font-medium" href="{{route('genres')}}">Gêneros</a>
+                 <a title="categorias" class="w-full h-7 flex items-center justify-center font-medium" href="{{route('genres')}}">Categorias</a>
+             </li>
+             <li >
+                 <a title="livros" class="w-full h-7 flex items-center justify-center font-medium" href="{{route('books')}}">Livros</a>
              </li>
              {{-- logout btn --}}
              <li >

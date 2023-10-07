@@ -11,6 +11,6 @@ class UserController extends Controller
     public function dashboard()
     {
         $user = auth()->user();
-        return view('dashboard', ['user' => $user]);
+        return view('dashboard.index', ['user' => $user]);
     }
 }

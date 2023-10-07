@@ -16,7 +16,7 @@ class AuthorController extends Controller
         return view('dashboard.authors', ['authors' => $authors, 'user' => $user]);
     }
 
-    public function registerAuthor(Request $request)
+    public function create(Request $request)
     {
 
         $data = ['name' => strtoupper($request->name)];

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\AuthorController;
@@ -33,13 +34,16 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get("/dashboard", [UserController::class, 'dashboard'])->name('dashboard');
 
     Route::get('/dashboard/authors', [AuthorController::class, 'index'])->name('authors');
-    Route::post('/authors/create', [AuthorController::class, 'registerAuthor'])->name('author_create');
+    Route::post('/authors/create', [AuthorController::class, 'create'])->name('author_create');
 
     Route::get("/dashboard/publishers", [PublisherController::class, 'index'])->name('publishers');
-    Route::post("/publishers/create", [PublisherController::class, 'registerPublisher'])->name('publisher_create');
+    Route::post("/publishers/create", [PublisherController::class, 'create'])->name('publisher_create');
 
     Route::get("/dashboard/genres", [GenreController::class, 'index'])->name('genres');
-    Route::post("/genres/create", [GenreController::class, 'registerGenre'])->name('genre_create');
+    Route::post("/genres/create", [GenreController::class, 'create'])->name('genre_create');
+
+    Route::get("/dashboard/books", [BookController::class, 'index'])->name('books');
+    Route::post("/books/create", [BookController::class, 'create'])->name('book_create');
 
     // Log out of admin dashboard
     Route::get("/logout", [AuthController::class, 'logout'])->name('logout');
