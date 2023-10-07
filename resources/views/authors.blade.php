@@ -72,7 +72,7 @@
                 </table>
             @else
                 <div class="w-full h-20 flex items-center justify-center text-gray-500">
-                    Sem autores cadastrados até o momento
+                    Nunhum autor cadastrado até o momento
                 </div>
             @endif
         </div>
