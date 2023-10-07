@@ -11,6 +11,9 @@
              <li >
                  <a title="autores" class="w-full h-7 flex items-center justify-center font-medium" href="{{route('authors')}}">Autores</a>
              </li>
+             <li >
+                 <a title="editoras" class="w-full h-7 flex items-center justify-center font-medium" href="{{route('publishers')}}">Editoras</a>
+             </li>
              {{-- logout btn --}}
              <li >
                  <a title="Sair" class="w-full h-7 flex items-center justify-center font-medium text-rose-500" href="{{route('logout')}}">Sair</a>

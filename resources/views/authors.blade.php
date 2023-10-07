@@ -56,7 +56,7 @@
                 <table class="border w-full text-sm">
                     <thead>
                         <th class="border">ID</th>
-                        <th class="border">Name</th>
+                        <th class="border">Nome</th>
                         <th class="border">Livros</th>
                     </thead>
                     <tbody class="[&>*:nth-child(even)]:bg-gray-100">

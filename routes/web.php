@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PublisherController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
@@ -32,6 +33,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/dashboard/authors', [AuthorController::class, 'index'])->name('authors');
     Route::post('/authors/create', [AuthorController::class, 'registerAuthor'])->name('author_create');
+
+    Route::get("/dashboard/publishers", [PublisherController::class, 'index'])->name('publishers');
 
     // Log out of admin dashboard
     Route::get("/logout", [AuthController::class, 'logout'])->name('logout');
