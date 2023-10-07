@@ -30,4 +30,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get("/dashboard", [UserController::class, 'dashboard'])->name('dashboard');
 
 
+    Route::get("/logout", [AuthController::class, 'logout'])->name('logout');
 });

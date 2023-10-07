@@ -16,7 +16,19 @@
     @vite('resources/js/app.js')
 
 </head>
-<body class="bg-gray-100">
-    @yield('content')
-</body>
+    <body class="bg-gray-100">
+        <div class="flex items-start p-4 gap-4">
+            <x-side-bar/>
+
+            <div >
+                <div class="font-medium">
+                    Olá, {{$user->name}}
+                </div>
+                <div>
+                    @yield('content')
+                </div>
+            </div>
+        </div>
+
+    </body>
 </html>
