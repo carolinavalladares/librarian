@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,8 @@ Route::middleware('auth:sanctum')->group(function () {
     // dashboard
     Route::get("/dashboard", [UserController::class, 'dashboard'])->name('dashboard');
 
+    Route::get('/dashboard/authors', [AuthorController::class, 'index'])->name('authors');
 
+    // Log out of admin dashboard
     Route::get("/logout", [AuthController::class, 'logout'])->name('logout');
 });
