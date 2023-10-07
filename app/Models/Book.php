@@ -33,7 +33,7 @@ class Book extends Model
     }
     public function genre()
     {
-        return $this->belongsTo(Genre::class);
+        return $this->hasMany(Genre::class);
     }
 
     public function publisher()

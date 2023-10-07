@@ -13,7 +13,7 @@ class AuthorController extends Controller
         $authors = Author::all();
         $user = auth()->user();
 
-        return view('authors', ['authors' => $authors, 'user' => $user]);
+        return view('dashboard.authors', ['authors' => $authors, 'user' => $user]);
     }
 
     public function registerAuthor(Request $request)

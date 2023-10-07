@@ -2,27 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Publisher;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class PublisherController extends Controller
+class GenreController extends Controller
 {
     public function index()
     {
-        $publishers = Publisher::all();
         $user = auth()->user();
 
-        return view('dashboard.publishers', ['publishers' => $publishers, 'user' => $user]);
+        $genres = Genre::all();
+
+        return view('dashboard.genres', ['genres' => $genres, 'user' => $user]);
+
     }
 
-    public function registerPublisher(Request $request)
+    public function registerGenre(Request $request)
     {
 
         $data = ['name' => strtoupper($request->name)];
 
         $rules = [
-            'name' => 'required|unique:publishers'
+            'name' => 'required|unique:genres'
         ];
 
         $validator = Validator::make($data, $rules);
@@ -35,7 +37,7 @@ class PublisherController extends Controller
 
         $name = $data['name'];
 
-        Publisher::create(['name' => $name]);
+        Genre::create(['name' => $name]);
 
         return redirect()->back()->withSuccess('Registro realizado com sucesso.');
     }
