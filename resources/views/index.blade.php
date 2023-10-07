@@ -14,11 +14,11 @@
 
 
         <div class="flex flex-col items-center justify-center gap-5 max-w-lg m-auto w-full">
-            <a title="login como bibliotecário(a)" class="h-11 w-full text-base font-medium flex items-center justify-center bg-orange-500 text-white md:text-lg" href="/login">
+            <a title="login como bibliotecário(a)" class="h-11 w-full text-base font-medium flex items-center justify-center bg-orange-500 text-white " href="/login">
                 Fazer login como bibliotecário(a)
             </a>
 
-            <a title="novo registro de estudante" class="h-11 w-full text-base font-medium flex items-center justify-center bg-black text-white md:text-lg " href="/">
+            <a title="novo registro de estudante" class="h-11 w-full text-base font-medium flex items-center justify-center bg-black text-white  " href="/">
                 Novo registro de estudante
             </a>
         </div>

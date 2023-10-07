@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Librarian</title>
+    <title>Dashboard|Librarian</title>
 
     {{-- tab icon --}}
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
@@ -14,14 +14,9 @@
 
     {{-- Load js --}}
     @vite('resources/js/app.js')
+
 </head>
-    <body class=" bg-gray-100 font-montserrat">
-        <x-header/>
-
-        <div class="max-w-4xl m-auto px-4 py-10">
-            @yield('content')
-        </div>
-
-
-    </body>
+<body class="bg-gray-100">
+    @yield('content')
+</body>
 </html>

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,15 @@ Route::get('/', function () {
     return view('index');
 })->name('home');
 
-Route::middleware('auth-sanctum')->group(function () {
+// login route
+Route::get("/login", [AuthController::class, 'login'])->name('login');
+Route::post('/handle_login', [AuthController::class, 'handle_login'])->name('handle_login');
+
+Route::middleware('auth:sanctum')->group(function () {
     // protected routes go here
+
+    // dashboard
+    Route::get("/dashboard", [UserController::class, 'dashboard'])->name('dashboard');
+
+
 });
