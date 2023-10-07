@@ -22,6 +22,8 @@ class AuthController extends Controller
         // attempt login with provided credentials
         if (auth()->attempt($credentials)) {
             return redirect(route('dashboard'));
+        } else {
+            return redirect()->back()->with('fail_message', 'Falha ao logar... Tente novamente.');
         }
 
     }

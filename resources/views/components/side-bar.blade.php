@@ -5,11 +5,11 @@
         </a>
 
         <ul class="mt-2">
-             <li class="mb-2">
+             <li >
                  <a title="início" class="w-full h-7 flex items-center justify-center font-medium" href="{{route('dashboard')}}">Início</a>
              </li>
              {{-- logout btn --}}
-             <li class="mb-2">
+             <li >
                  <a title="Sair" class="w-full h-7 flex items-center justify-center font-medium text-rose-500" href="{{route('logout')}}">Sair</a>
              </li>
              

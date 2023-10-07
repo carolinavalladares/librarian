@@ -14,6 +14,10 @@
             </ul>
                 
             @endif
+
+            @if (session()->has('fail_message'))
+                <p  class="max-w-xl m-auto flex  items-center justify-center  gap-2 mb-2 text-red-600 bg-red-200 h-9 text-sm font-medium" >{{session()->get('fail_message')}}</p>
+            @endif
         </div>
 
         <form class="bg-white max-w-xl m-auto w-full p-4 shadow-md" action="{{route('handle_login')}}" method="POST">
