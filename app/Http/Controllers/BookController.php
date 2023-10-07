@@ -64,6 +64,6 @@ class BookController extends Controller
         Book::create($data);
 
 
-        return redirect(route('books'));
+        return redirect(route('books'))->withSuccess("Cadastro realizado com sucesso.");
     }
 }
