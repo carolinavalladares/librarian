@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Librarian</title>
 
+    {{-- tab icon --}}
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+
     {{-- Load tailwindcss --}}
     @vite('resources/css/app.css')
 
