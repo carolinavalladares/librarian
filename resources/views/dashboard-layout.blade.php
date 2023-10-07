@@ -20,8 +20,8 @@
         <div class="flex items-start p-4 gap-4">
             <x-side-bar/>
 
-            <div >
-                <div class="font-medium">
+            <div class="flex-1">
+                <div class="font-medium mb-4">
                     Olá, {{$user->name}}
                 </div>
                 <div>

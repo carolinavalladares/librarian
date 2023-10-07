@@ -31,6 +31,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get("/dashboard", [UserController::class, 'dashboard'])->name('dashboard');
 
     Route::get('/dashboard/authors', [AuthorController::class, 'index'])->name('authors');
+    Route::post('/authors/create', [AuthorController::class, 'registerAuthor'])->name('author_create');
 
     // Log out of admin dashboard
     Route::get("/logout", [AuthController::class, 'logout'])->name('logout');

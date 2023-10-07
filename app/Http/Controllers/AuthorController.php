@@ -14,4 +14,15 @@ class AuthorController extends Controller
 
         return view('authors', ['authors' => $authors, 'user' => $user]);
     }
+
+    public function registerAuthor(Request $request)
+    {
+        $values = $request->validate([
+            'name' => 'required'
+        ]);
+
+        Author::create($values);
+
+        return redirect()->back()->withSuccess('Registro realizado com sucesso.');
+    }
 }
