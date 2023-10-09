@@ -18,7 +18,7 @@
                 Fazer login como bibliotecário(a)
             </a>
 
-            <a title="novo registro de estudante" class="h-11 w-full text-base font-medium flex items-center justify-center bg-black text-white  " href="/">
+            <a title="novo registro de estudante" class="h-11 w-full text-base font-medium flex items-center justify-center bg-black text-white  " href="/students/register">
                 Novo registro de estudante
             </a>
         </div>
