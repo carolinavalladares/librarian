@@ -1,5 +1,11 @@
 @extends('dashboard-layout')
 
+
+@push('book_form')
+    @vite('/resources/js/book_form.js')
+@endpush
+
+
 @section('content')
 
 <section class="w-full">
@@ -21,25 +27,51 @@
     </div>
 
     {{-- create publisher form --}}
-    <form class="book_form px-4 py-3 bg-white shadow-md w-full " action="{{ route('book_create') }}"  method="POST">
+    <form class="book_form px-4 py-3 bg-white shadow-md w-full " action="{{ route('book_create') }}"  method="POST" enctype="multipart/form-data">
         @csrf
         @method('post')
-        <h2 class="font-semibold mb-2">Cadastrar nova categoria</h2>
+        <h2 title="cadastrar novo livro" class="add_new_book flex items-center justify-between cursor-pointer">
+           <span class="font-semibold">Cadastrar novo livro</span>
+
+           <button type="button" class="text-gray-400">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+           </button>
+        </h2>
+
+        {{-- Fields container --}}
+        <div class="hidden form_container">
+        <div class="flex items-start justify-start gap-2 mt-4">
             {{-- image --}}
-            <div >
-                <label class="text-sm leading-none" for='image' >URL da imagem de capa:</label>
-                <input placeholder="Digite URL da imagem..." class="border h-9 px-4 text-sm w-full" type="text" name="image" id="image" >
+            <div class="relative" >
+                <button type="button" title="remover imagem" class="remove_image absolute text-xs w-full -top-4 text-red-500 hover:underline hidden">remover imagem</button>
+                <label class="label relative h-40 w-28 border-2 flex cursor-pointer overflow-hidden" for='image' >
+                    <div title="adicionar capa" class="absolute flex items-center justify-center flex-col text-gray-300 w-full h-full z-10">
+                        <span class="text-4xl">+</span>
+                        <span class="text-sm">Adicionar capa</span>
+                    </div>
+
+                    <div class="display relative w-full h-full hidden z-50">
+                       
+                    </div>
+                </label>
+                <input placeholder="Digite URL da imagem..." class="hidden image_input" type="file" name="image" id="image" >
             </div>
-            {{-- title --}}
-            <div >
-                <label class="text-sm leading-none" for='title' >Título do livro:</label>
-                <input placeholder="Digite o título do livro..." class="border h-9 px-4 text-sm w-full" type="text" name="title" id="title" >
+
+            <div class="flex-1">
+                {{-- title --}}
+                <div >
+                    <label class="text-sm leading-none" for='title' >Título do livro:</label>
+                    <input placeholder="Digite o título do livro..." class="border h-9 px-4 text-sm w-full" type="text" name="title" id="title" >
+                </div>
+                {{-- description --}}
+                <div >
+                    <label class="text-sm leading-none" for='description' >Descrição do livro:</label>
+                    <textarea placeholder="Digite a descrição do livro..." class="border py-2 px-4 text-sm w-full min-h-[50px]" type="text" name="description" id="description" ></textarea>
+                </div>
             </div>
-            {{-- description --}}
-            <div >
-                <label class="text-sm leading-none" for='description' >Descrição do livro:</label>
-                <textarea placeholder="Digite a descrição do livro..." class="border py-2 px-4 text-sm w-full" type="text" name="description" id="description" ></textarea>
-            </div>
+        </div>
+            
+            
             
             <div class="flex gap-2 items-end">
                 {{-- ISBN code --}}
@@ -110,8 +142,7 @@
 
             {{-- submit btn --}}
             <input title="cadastrar" class="h-9 flex items-center justify-center px-2 bg-orange-500 text-white font-medium cursor-pointer mr-0 ml-auto"  type="submit" value="Cadastrar">
-     
-        
+        </div>
     </form>
     
     {{-- book list --}}
@@ -143,8 +174,8 @@
                         @foreach ($books as $book)
                             <tr >
                                 <td class="border px-2 text-center">{{$book->id}}</td>
-                                <td class="border px-2 overflow-hidden flex items-center justify-center ">
-                                    <img class="w-11 block" src="{{$book->image}}" alt="capa do livro">
+                                <td class=" px-2 overflow-hidden flex items-center justify-center ">
+                                    <img class="w-11 block" src="{{asset('/assets/images/books/' . $book->image)}}" alt="capa do livro">
                                 </td>
                                 <td class="border  px-2">{{$book->title}}</td>                               
                                 <td class="border  px-2 text-center">{{$book->author->name}}</td>

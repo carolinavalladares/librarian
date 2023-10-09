@@ -15,6 +15,9 @@
     {{-- Load js --}}
     @vite('resources/js/app.js')
 
+
+    @stack('book_form')
+
 </head>
     <body class="bg-gray-100">
         <div class="flex items-start p-4 gap-4">

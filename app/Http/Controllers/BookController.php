@@ -41,7 +41,7 @@ class BookController extends Controller
 
         $rules = [
             'title' => 'required|unique:books|string',
-            'image' => 'sometimes|string',
+            'image' => 'sometimes|file',
             'description' => 'required|string',
             'ISBN' => 'required|min:10|max:13',
             'pages' => 'required|integer',
@@ -61,7 +61,27 @@ class BookController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        Book::create($data);
+        $book = new Book($data);
+
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $requestImage = $request->image;
+
+            $fileExtension = $requestImage->extension();
+
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime('now')) . '.' . $fileExtension;
+
+            $request->image->move(public_path('assets/images/books'), $imageName);
+
+            $book->image = $imageName;
+
+
+
+
+        } else {
+            $book->image = "";
+        }
+
+        $book->save();
 
 
         return redirect(route('books'))->withSuccess("Cadastro realizado com sucesso.");
