@@ -20,6 +20,6 @@ class Student extends Model
 
     public function borrowed_books()
     {
-        return $this->hasMany(Book::class);
+        return $this->hasMany(Book::class, 'book_id', 'student_id');
     }
 }

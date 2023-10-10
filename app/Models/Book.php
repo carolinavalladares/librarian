@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Genre;
 use App\Models\Author;
+use App\Models\Student;
 use App\Models\Publisher;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -40,6 +41,11 @@ class Book extends Model
     public function publisher()
     {
         return $this->belongsTo(Publisher::class);
+    }
+
+    public function students()
+    {
+        return $this->belongsTo(Student::class, 'student_id', 'book_id');
     }
 
 }
