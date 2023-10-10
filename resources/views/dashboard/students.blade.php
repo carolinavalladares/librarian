@@ -7,7 +7,7 @@
 @section('content')
 
     <section>
-        <h1 class="text-lg font-semibold ">Estudantes</h1>
+        <h1 class="text-lg font-semibold ">Estudantes cadastrados</h1>
         <div class="flex items-end justify-between gap-2 mb-3">
             <div> 
                 {{-- filtrar --}}

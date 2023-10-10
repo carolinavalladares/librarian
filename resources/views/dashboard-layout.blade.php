@@ -21,7 +21,7 @@
 
 </head>
     <body class="bg-gray-100">
-        <div class="flex items-start p-4 gap-4">
+        <div class="flex items-start p-4 gap-4 max-w-7xl m-auto">
             <x-side-bar/>
 
             <div class="flex-1">
