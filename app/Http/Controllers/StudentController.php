@@ -15,6 +15,16 @@ class StudentController extends Controller
 
         $students = Student::all();
 
+        // handle search
+        if ($request->has('search')) {
+            $search = $request->input('search');
+
+            $students = Student::where('name', 'like', '%' . $search . '%')->get();
+
+            return view('dashboard.students', ['students' => $students, 'user' => $user]);
+        }
+
+        // handle filter
         if ($filter == "approved") {
             $students = Student::where('approved', true)->get();
         } else if ($filter == "denied") {

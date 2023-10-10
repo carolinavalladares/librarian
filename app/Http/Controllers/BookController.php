@@ -20,7 +20,7 @@ class BookController extends Controller
         $user = auth()->user();
 
         // handle search
-        $search = strtoupper($request->input('search'));
+        $search = $request->input('search');
 
         if ($request->has('search')) {
             $books = Book::where('title', 'like', '%' . $search . '%')->get();

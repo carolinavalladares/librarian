@@ -2,7 +2,7 @@
 
 
 @push('book_page')
-    @vite('/resources/js/book_page.js')
+    @vite('/resources/js/books/book_page.js')
 @endpush
 
 
