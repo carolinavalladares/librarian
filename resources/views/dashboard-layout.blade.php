@@ -16,7 +16,7 @@
     @vite('resources/js/app.js')
 
 
-    @stack('book_form')
+    @stack('book_page')
     @stack('students_filter')
 
 </head>

@@ -1,8 +1,8 @@
 @extends('dashboard-layout')
 
 
-@push('book_form')
-    @vite('/resources/js/book_form.js')
+@push('book_page')
+    @vite('/resources/js/book_page.js')
 @endpush
 
 
@@ -149,16 +149,26 @@
     <div class="mt-2">
         <div class="flex items-center justify-between">
             <h2 class="font-semibold">Livros</h2>
-            @if ($books->count()>0)
-                <span class="text-sm text-gray-600 mr-1">
-                    {{$books->count()}} 
-                    @if ($books->count() > 1)
-                     livros
-                    @else
-                     livro
-                    @endif
-                </span>
-            @endif
+
+
+            {{-- search --}}
+            <div>
+                <form class="search_book_form bg-white shadow-md px-1 h-7 flex items-center justify-center rounded-sm text-sm min-w-[200px]" action="">
+                    <input  class="search_input flex-1 outline-none px-1" type="text" placeholder="Buscar livro">
+                    <button title="buscar" type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    </button>
+                </form>
+            </div>
+           
+            <span class="text-sm text-gray-600 mr-1">
+                  {{$books->count()}} 
+                  @if ($books->count() > 1)
+                    livros
+                  @else
+                   livro
+                  @endif
+            </span>
         </div>
 
         <div class="mt-2 p-4 bg-white shadow-md">
@@ -169,6 +179,7 @@
                         <th class="border ">Capa</th>
                         <th class="border ">Nome</th>
                         <th class="border ">Autor</th>
+                        <th class="border ">Cópias Disponíveis</th>
                     </thead>
                     <tbody class="[&>*:nth-child(even)]:bg-gray-100">
                         @foreach ($books as $book)
@@ -179,15 +190,22 @@
                                 </td>
                                 <td class="border  px-2">{{$book->title}}</td>                               
                                 <td class="border  px-2 text-center">{{$book->author->name}}</td>
+                                <td class="border  px-2 text-center">{{$book->quantity}}</td>
                             </tr>
                         @endforeach
                     </tbody>
                    
                 </table>
             @else
+                @if(request()->query(('search')))
                 <div class="w-full h-20 flex items-center justify-center text-gray-500">
-                    Nunhum livro cadastrado até o momento
+                    Nunhum resultado encontrado
                 </div>
+                @else
+                    <div class="w-full h-20 flex items-center justify-center text-gray-500">
+                        Nunhum livro cadastrado até o momento
+                    </div>
+                @endif
             @endif
         </div>
     </div>

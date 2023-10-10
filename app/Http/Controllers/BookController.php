@@ -12,15 +12,25 @@ use Illuminate\Support\Facades\Validator;
 
 class BookController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $books = BookResource::collection(Book::all());
         $genres = Genre::all();
         $authors = Author::all();
         $publishers = Publisher::all();
         $user = auth()->user();
 
-        return view('dashboard.books', ['books' => $books, 'genres' => $genres, 'authors' => $authors, 'publishers' => $publishers, 'user' => $user]);
+        // handle search
+        $search = strtoupper($request->input('search'));
+
+        if ($request->has('search')) {
+            $books = Book::where('title', 'like', '%' . $search . '%')->get();
+        } else {
+            $books = BookResource::collection(Book::all());
+        }
+
+        // dd($books);
+
+        return view('dashboard.books', ['books' => BookResource::collection($books), 'genres' => $genres, 'authors' => $authors, 'publishers' => $publishers, 'user' => $user]);
     }
 
     public function create(Request $request)
