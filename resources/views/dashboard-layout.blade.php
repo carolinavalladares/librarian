@@ -17,6 +17,7 @@
 
 
     @stack('book_form')
+    @stack('students_filter')
 
 </head>
     <body class="bg-gray-100">

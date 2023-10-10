@@ -7,10 +7,23 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $students = Student::all();
         $user = auth()->user();
+
+        $filter = $request->input('filter');
+
+        $students = Student::all();
+
+        if ($filter == "approved") {
+            $students = Student::where('approved', true)->get();
+        } else if ($filter == "denied") {
+            $students = Student::where('approved', false)->get();
+        } else if ($filter == "null") {
+            $students = Student::where('approved', null)->get();
+        } else {
+            $students = Student::all();
+        }
 
         return view('dashboard.students', ['students' => $students, 'user' => $user]);
     }
