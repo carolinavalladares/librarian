@@ -16,7 +16,7 @@
     @vite('resources/js/app.js')
 
     {{-- navbar script --}}
-    @vite('resources/js/admin_sidebar.js')
+    @vite('resources/js/components/admin_sidebar.js')
 
 
     {{-- page specific scripts --}}
