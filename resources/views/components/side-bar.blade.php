@@ -11,7 +11,7 @@
        
 
     
-        <ul class="nav-list px-4 flex justify-center flex-col max-h-0 mb-5 overflow-hidden transition-all duration-500   md:mb-0 md:mt-2 md:flex-1 md:px-0 md:max-h-max">
+        <ul class="nav-list px-4 flex justify-center flex-col max-h-0 mb-5 overflow-hidden transition-all duration-500 text-sm   md:mb-0 md:mt-2 md:flex-1 md:px-0 md:max-h-max">
              <li >
                  <a name="dashboard" title="início" class="nav_link w-full h-10 flex items-center px-4 font-medium border-b" href="{{route('dashboard')}}">Início</a>
              </li>

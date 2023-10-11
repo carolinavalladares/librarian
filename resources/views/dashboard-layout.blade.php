@@ -27,12 +27,12 @@
     
 
 </head>
-    <body class="bg-gray-100">
-        <div class="flex flex-col items-start p-4 gap-4 max-w-7xl m-auto md:flex-row">
+    <body class="bg-gray-100 font-montserrat flex flex-col w-full">
+        <div class="flex-1 w-full  flex flex-col items-start p-4 gap-4 max-w-7xl m-auto md:flex-row">
             <x-side-bar/>
 
             <div class="md:flex-1 w-full">
-                <div class="font-medium mb-4">
+                <div class="font-medium text-sm mb-4">
                     Olá, {{$user->name}}
                 </div>
                 <div>
@@ -40,6 +40,8 @@
                 </div>
             </div>
         </div>
+
+        <x-footer/>
 
     </body>
 </html>

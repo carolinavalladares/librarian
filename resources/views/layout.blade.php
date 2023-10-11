@@ -15,13 +15,13 @@
     {{-- Load js --}}
     @vite('resources/js/app.js')
 </head>
-    <body class=" bg-gray-100 font-montserrat">
+    <body class=" bg-gray-100 font-montserrat flex flex-col">
         <x-header/>
 
-        <div class="max-w-4xl m-auto px-4 py-10">
+        <div class="flex-1 max-w-4xl m-auto px-4 py-10">
             @yield('content')
         </div>
 
-
+        <x-footer/>
     </body>
 </html>
