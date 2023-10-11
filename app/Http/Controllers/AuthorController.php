@@ -8,10 +8,17 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthorController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $authors = Author::all();
         $user = auth()->user();
+
+        // handle search
+        if ($request->has('search')) {
+            $search = $request->input('search');
+
+            $authors = Author::where('name', 'like', '%' . $search . '%')->get();
+        }
 
         return view('dashboard.authors', ['authors' => $authors, 'user' => $user]);
     }

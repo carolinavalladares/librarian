@@ -8,11 +8,18 @@ use Illuminate\Support\Facades\Validator;
 
 class GenreController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $user = auth()->user();
 
         $genres = Genre::all();
+
+        // handle search
+        if ($request->has('search')) {
+            $search = $request->input('search');
+
+            $genres = Genre::where('name', 'like', '%' . $search . '%')->get();
+        }
 
         return view('dashboard.genres', ['genres' => $genres, 'user' => $user]);
 

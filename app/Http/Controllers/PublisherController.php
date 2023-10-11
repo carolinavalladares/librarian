@@ -8,10 +8,17 @@ use Illuminate\Support\Facades\Validator;
 
 class PublisherController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $publishers = Publisher::all();
         $user = auth()->user();
+
+        // handle search
+        if ($request->has('search')) {
+            $search = $request->input('search');
+
+            $publishers = Publisher::where('name', 'like', '%' . $search . '%')->get();
+        }
 
         return view('dashboard.publishers', ['publishers' => $publishers, 'user' => $user]);
     }

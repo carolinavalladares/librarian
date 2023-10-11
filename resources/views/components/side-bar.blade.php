@@ -4,7 +4,7 @@
             <a  title="Librarian" href="/">
                 <x-logo/>
             </a>
-            <button title="abrir menu de navegação" class="hamburger md:hidden">
+            <button title="menu de navegação" class="hamburger md:hidden">
                 <x-hamburger/>
             </button>
         </div>

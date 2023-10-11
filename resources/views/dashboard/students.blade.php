@@ -1,6 +1,6 @@
 @extends('dashboard-layout')
 
-@push('students_filter')
+@push('student_page')
   @vite('resources/js/students/students_page.js')
 @endpush
 
@@ -48,6 +48,7 @@
         </div>
 
         <div class="bg-white shadow-md p-4">
+            @if($students->count() > 0)
             <table class="border text-sm w-full">
                 <thead>
                     <th class="border">Matrícula</th>
@@ -56,6 +57,7 @@
                     <th class="border">Livros Emprestados</th>
                     <th class="border">Status</th>
                 </thead>
+                
                 <tbody class="[&>*:nth-child(even)]:bg-gray-100">
                 @foreach ($students as $student)
                     <tr>
@@ -84,7 +86,18 @@
                     </tr>
                 @endforeach
                 </tbody>
-            </table>
+           </table>
+                 @else
+                    @if(request()->query(('search')))
+                        <div class="w-full h-20 flex items-center justify-center text-gray-500">
+                            Nunhum resultado encontrado
+                        </div>
+                    @else
+                        <div class="w-full h-20 flex items-center justify-center text-gray-500">
+                            Nenhuma estudante cadastrado até o momento
+                        </div>
+                    @endif
+                @endif
         </div>
        
   

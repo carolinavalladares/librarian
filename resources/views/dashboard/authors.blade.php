@@ -1,5 +1,9 @@
 @extends('dashboard-layout')
 
+@push('author_page')
+    @vite('/resources/js/authors/author_page.js')
+@endpush
+
 @section('content')
 
    <section class="w-full">
@@ -39,6 +43,18 @@
     <div class="mt-2">
         <div class="flex items-center justify-between">
             <h2 class="font-semibold">Autores</h2>
+
+            {{-- search --}}
+            <div>
+                <form class="search_authors_form bg-white shadow-md px-1 h-7 flex items-center justify-center rounded-sm text-sm min-w-[200px]" >
+                    <input  class="search_input flex-1 outline-none px-1" type="text" placeholder="Buscar autor">
+                    <button title="buscar" type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    </button>
+                </form>
+            </div>
+
+
             @if ($authors->count()>0)
                 <span class="text-sm text-gray-600 mr-1">
                     {{$authors->count()}} 
@@ -71,9 +87,15 @@
                    
                 </table>
             @else
-                <div class="w-full h-20 flex items-center justify-center text-gray-500">
-                    Nunhum autor cadastrado até o momento
-                </div>
+            @if(request()->query(('search')))
+            <div class="w-full h-20 flex items-center justify-center text-gray-500">
+                Nunhum resultado encontrado
+            </div>
+            @else
+            <div class="w-full h-20 flex items-center justify-center text-gray-500">
+                Nenhum autor cadastrado até o momento
+            </div>
+            @endif
             @endif
         </div>
     </div>

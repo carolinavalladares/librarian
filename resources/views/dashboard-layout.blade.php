@@ -15,11 +15,16 @@
     {{-- Load js --}}
     @vite('resources/js/app.js')
 
+    {{-- navbar script --}}
     @vite('resources/js/admin_sidebar.js')
 
 
+    {{-- page specific scripts --}}
     @stack('book_page')
-    @stack('students_filter')
+    @stack('student_page')
+    @stack('publisher_page')
+    @stack('author_page')
+    @stack('genre_page')
 
 </head>
     <body class="bg-gray-100">
