@@ -5,6 +5,10 @@
     @vite('/resources/js/books/book_page.js')
 @endpush
 
+@push('search_bar')
+  @vite('resources/js/components/searchBar.js')
+@endpush
+
 
 @section('content')
 
@@ -152,18 +156,11 @@
 
 
             {{-- search --}}
-            <div>
-                <form class="search_book_form bg-white shadow-md px-1 h-7 flex items-center justify-center rounded-sm text-sm min-w-[200px]" action="">
-                    <input  class="search_input flex-1 outline-none px-1" type="text" placeholder="Buscar livro">
-                    <button title="buscar" type="submit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                    </button>
-                </form>
-            </div>
+            <x-search-bar :placeholder="'Buscar livro'" />
            
             <span class="text-sm text-gray-600 mr-1">
                   {{$books->count()}} 
-                  @if ($books->count() > 1)
+                  @if ($books->count() > 1 || $books->count() == 0)
                     livros
                   @else
                    livro

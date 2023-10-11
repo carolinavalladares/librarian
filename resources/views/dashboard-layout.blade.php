@@ -22,9 +22,8 @@
     {{-- page specific scripts --}}
     @stack('book_page')
     @stack('student_page')
-    @stack('publisher_page')
-    @stack('author_page')
-    @stack('genre_page')
+    @stack('search_bar')
+    
 
 </head>
     <body class="bg-gray-100">

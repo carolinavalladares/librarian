@@ -4,6 +4,10 @@
   @vite('resources/js/students/students_page.js')
 @endpush
 
+@push('search_bar')
+  @vite('resources/js/components/searchBar.js')
+@endpush
+
 @section('content')
 
     <section>
@@ -19,30 +23,23 @@
                     <a name='null' class="filter_link px-2" href="{{route('students', ['filter'=>'null'])}}">Pendentes</a>
                 </div>
                 {{-- buscar --}}
-                <div class="mt-1">
-                    <form class="search_student_form bg-white shadow-md px-1 h-7 flex items-center justify-center rounded-sm text-sm min-w-[200px]" >
-                        <input  class="search_input flex-1 outline-none px-1" type="text" placeholder="Buscar estudante">
-                        <button title="buscar" type="submit">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                        </button>
-                    </form>
-                </div>
+                <x-search-bar  :placeholder="'Buscar estudante'" />
             </div>
             
 
 
             <div>
                 <p>
-                    @if ($students->count()>0)
+                   
                 <span class="text-sm text-gray-600 mr-1">
                     {{$students->count()}} 
-                    @if ($students->count() > 1)
+                    @if ($students->count() > 1 || $students->count() == 0)
                      estudantes
                     @else
                      estudante
                     @endif
                 </span>
-            @endif
+            
                 </p>
             </div>
         </div>

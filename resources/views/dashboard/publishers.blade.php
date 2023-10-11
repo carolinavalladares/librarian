@@ -1,7 +1,7 @@
 @extends('dashboard-layout')
 
-@push('publisher_page')
-    @vite('/resources/js/publishers/publisher_page.js')
+@push('search_bar')
+  @vite('resources/js/components/searchBar.js')
 @endpush
 
 @section('content')
@@ -46,25 +46,18 @@
                     <h2 class="font-semibold">Editoras</h2>
 
                     {{-- search --}}
-                    <div>
-                        <form class="search_publishers_form bg-white shadow-md px-1 h-7 flex items-center justify-center rounded-sm text-sm min-w-[200px]" action="">
-                            <input  class="search_input flex-1 outline-none px-1" type="text" placeholder="Buscar editora">
-                            <button title="buscar" type="submit">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                            </button>
-                        </form>
-                    </div>
+                    <x-search-bar  :placeholder="'Buscar editora'" />
 
-                    @if ($publishers->count()>0)
+                  
                         <span class="text-sm text-gray-600 mr-1">
                             {{$publishers->count()}} 
-                            @if ($publishers->count() > 1)
+                            @if ($publishers->count() > 1 || $publishers->count() == 0)
                              editoras
                             @else
                              editora
                             @endif
                         </span>
-                    @endif
+                   
                 </div>
         
                 <div class="mt-2 p-4 bg-white shadow-md">
