@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
@@ -20,17 +21,21 @@ use App\Http\Controllers\PublisherController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+// redirect to dashboard if user authenticated
+Route::middleware(RedirectIfAuthenticated::class)->group(function () {
+    // home
+    Route::get('/', function () {
+        return view('index');
+    })->name('home');
 
-// login route
-Route::get("/login", [AuthController::class, 'login'])->name('login');
-Route::post('/handle_login', [AuthController::class, 'handle_login'])->name('handle_login');
+    // login route
+    Route::get("/login", [AuthController::class, 'login'])->name('login');
+    Route::post('/handle_login', [AuthController::class, 'handle_login'])->name('handle_login');
 
-// student registration
-Route::get("/students/register", [StudentController::class, 'register'])->name('student_register');
-Route::post("/students/handle_register", [StudentController::class, 'handle_register'])->name('handle_student_register');
+    // student registration
+    Route::get("/students/register", [StudentController::class, 'register'])->name('student_register');
+    Route::post("/students/handle_register", [StudentController::class, 'handle_register'])->name('handle_student_register');
+});
 
 // protected routes go here
 Route::middleware('auth:sanctum')->group(function () {

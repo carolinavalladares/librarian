@@ -18,7 +18,7 @@
     <body class=" bg-gray-100 font-montserrat flex flex-col">
         <x-header/>
 
-        <div class="flex-1 max-w-4xl m-auto px-4 py-10">
+        <div class="flex-1 max-w-4xl w-full m-auto px-4 py-10">
             @yield('content')
         </div>
 
