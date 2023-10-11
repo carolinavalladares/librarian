@@ -177,6 +177,7 @@
                         <th class="border ">Nome</th>
                         <th class="border ">Autor</th>
                         <th class="border ">Cópias Disponíveis</th>
+                        <th class="border ">Estudantes</th>
                     </thead>
                     <tbody class="[&>*:nth-child(even)]:bg-gray-100">
                         @foreach ($books as $book)
@@ -188,6 +189,7 @@
                                 <td class="border  px-2">{{$book->title}}</td>                               
                                 <td class="border  px-2 text-center">{{$book->author->name}}</td>
                                 <td class="border  px-2 text-center">{{$book->quantity}}</td>
+                                <td class="border  px-2 text-center">{{$book->students->count()}}</td>
                             </tr>
                         @endforeach
                     </tbody>
