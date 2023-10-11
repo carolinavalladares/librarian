@@ -1,11 +1,17 @@
-<nav class="bg-white py-5 shadow-md min-h-[400px] min-w-[200px]">
-    <div class="flex flex-col">
-        <a title="Librarian" href="/">
-            <x-logo/>
-        </a>
+<nav class="bg-white pt-5 shadow-md w-full md:w-fit md:min-h-[400px] md:min-w-[200px] md:py-5 ">
+    <div class="flex flex-col ">
+        <div class="flex items-center justify-between px-4 ">
+            <a  title="Librarian" href="/">
+                <x-logo/>
+            </a>
+            <button title="abrir menu de navegação" class="hamburger md:hidden">
+                <x-hamburger/>
+            </button>
+        </div>
+       
 
     
-        <ul class="mt-2 flex-1 flex justify-center flex-col min-h-[200px]">
+        <ul class="nav-list px-4 flex justify-center flex-col max-h-0 mb-5 overflow-hidden transition-all duration-500   md:mb-0 md:mt-2 md:flex-1 md:px-0 md:max-h-max">
              <li >
                  <a name="dashboard" title="início" class="nav_link w-full h-10 flex items-center px-4 font-medium border-b" href="{{route('dashboard')}}">Início</a>
              </li>

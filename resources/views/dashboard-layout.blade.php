@@ -15,16 +15,18 @@
     {{-- Load js --}}
     @vite('resources/js/app.js')
 
+    @vite('resources/js/admin_sidebar.js')
+
 
     @stack('book_page')
     @stack('students_filter')
 
 </head>
     <body class="bg-gray-100">
-        <div class="flex items-start p-4 gap-4 max-w-7xl m-auto">
+        <div class="flex flex-col items-start p-4 gap-4 max-w-7xl m-auto md:flex-row">
             <x-side-bar/>
 
-            <div class="flex-1">
+            <div class="md:flex-1 w-full">
                 <div class="font-medium mb-4">
                     Olá, {{$user->name}}
                 </div>
