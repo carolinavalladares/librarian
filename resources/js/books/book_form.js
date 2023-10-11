@@ -4,6 +4,8 @@ const removeBtn = document.querySelector(".remove_image");
 const imageInputLabel = document.querySelector(".label");
 const showFormToggle = document.querySelector(".add_new_book");
 const formContainer = document.querySelector(".form_container");
+const btnArrow = document.querySelector(".btn_arrow");
+let formOpen = false;
 
 // display selected image in form
 imageInput.addEventListener("change", (e) => {
@@ -46,5 +48,16 @@ removeBtn.addEventListener("click", () => {
 
 // toggle form
 showFormToggle.addEventListener("click", () => {
-    formContainer.classList.toggle("hidden");
+    if (formOpen) {
+        formContainer.classList.remove("max-h-[500px]");
+        formContainer.classList.add("max-h-0");
+
+        formOpen = false;
+    } else {
+        formContainer.classList.remove("max-h-0");
+        formContainer.classList.add("max-h-[500px]");
+
+        formOpen = true;
+    }
+    btnArrow.classList.toggle("rotate-180");
 });

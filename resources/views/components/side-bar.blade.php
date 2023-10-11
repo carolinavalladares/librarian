@@ -30,6 +30,9 @@
              <li >
                  <a name="students" title="estudantes" class="nav_link w-full h-10 flex items-center px-4 font-medium border-b" href="{{route('students')}}">Estudantes</a>
              </li>
+             <li >
+                 <a name="librarians" title="bibliotecários" class="nav_link w-full h-10 flex items-center px-4 font-medium border-b" href="{{route('librarians')}}">Bibliotecários</a>
+             </li>
              {{-- logout btn --}}
              <li >
                  <a title="Sair" class="w-full h-7 flex items-center px-4 font-medium text-rose-500" href="{{route('logout')}}">Sair</a>

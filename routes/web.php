@@ -59,7 +59,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get("/students/approve/{student}", [StudentController::class, 'approve'])->name('approve_student');
     Route::get("/students/deny/{student}", [StudentController::class, 'deny'])->name('deny_student');
 
-
+    // librarians
+    Route::get('/librarians', [UserController::class, 'index'])->name('librarians');
 
     // Log out of admin dashboard
     Route::get("/logout", [AuthController::class, 'logout'])->name('logout');

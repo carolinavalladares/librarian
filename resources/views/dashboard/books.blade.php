@@ -30,20 +30,20 @@
         @endif
     </div>
 
-    {{-- create publisher form --}}
+    {{-- create book form --}}
     <form class="book_form px-4 py-3 bg-white shadow-md w-full " action="{{ route('book_create') }}"  method="POST" enctype="multipart/form-data">
         @csrf
         @method('post')
         <h2 title="cadastrar novo livro" class="add_new_book flex items-center justify-between cursor-pointer">
            <span class="font-semibold">Cadastrar novo livro</span>
 
-           <button type="button" class="text-gray-400">
+           <button type="button" class="btn_arrow transition-all duration-500 text-gray-400 w-fit max-w-fit origin-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
            </button>
         </h2>
 
         {{-- Fields container --}}
-        <div class="hidden form_container">
+        <div class="max-h-0 overflow-hidden transition-all duration-500 form_container">
         <div class="flex items-start justify-start gap-2 mt-4">
             {{-- image --}}
             <div class="relative" >

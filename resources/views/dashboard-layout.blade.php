@@ -22,6 +22,7 @@
     {{-- page specific scripts --}}
     @stack('book_page')
     @stack('student_page')
+    @stack('librarian_page')
     @stack('search_bar')
     
 

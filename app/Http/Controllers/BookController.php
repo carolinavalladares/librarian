@@ -28,8 +28,6 @@ class BookController extends Controller
             $books = BookResource::collection(Book::all());
         }
 
-        // dd($books);
-
         return view('dashboard.books', ['books' => BookResource::collection($books), 'genres' => $genres, 'authors' => $authors, 'publishers' => $publishers, 'user' => $user]);
     }
 
