@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -25,6 +26,22 @@ class AuthController extends Controller
         } else {
             return redirect()->back()->with('fail_message', 'Falha ao logar... Tente novamente.');
         }
+
+    }
+
+    public function handle_register(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required'
+        ]);
+
+
+        User::create($data);
+
+        return redirect()->back()->withSuccess('Cadastro realizado com sucesso.');
 
     }
 

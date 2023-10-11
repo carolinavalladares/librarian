@@ -30,7 +30,7 @@
     </div>
 
     {{-- create librarian form --}}
-    <form class="librarian_form px-4 py-3  bg-white shadow-md w-full " action=""  method="POST" enctype="multipart/form-data">
+    <form class="librarian_form px-4 py-3  bg-white shadow-md w-full " action="{{ route('handle_librarian_register') }}"  method="POST" enctype="multipart/form-data">
         @csrf
         @method('post')
         <h2 title="cadastrar novo bibiotecário" class="add_new_librarian flex items-center justify-between cursor-pointer">
@@ -42,8 +42,26 @@
         </h2>
 
      {{-- fields container --}}
-       <div class="max-h-0 overflow-hidden transition-all duration-500 form_container">
-        Fields here
+       <div class="max-h-0 overflow-hidden transition-all duration-500 form_container text-sm">
+        <div class="pt-2 flex flex-col mb-2">
+            <label class=" mb-1" for="name">Nome:</label>
+            <input placeholder="Digite o nome..."  class="border px-4 h-9"  type="text" name="name">
+        </div>
+        <div class="flex flex-col mb-2">
+            <label class=" mb-1" for="email">E-mail:</label>
+            <input placeholder="Digite o e-mail..." class="border px-4 h-9"  type="email" name="email">
+        </div>
+        <div class="flex flex-col mb-2">
+            <label class=" mb-1" for="password">Senha:</label>
+            <input placeholder="Digite a senha..." class="border px-4 h-9" type="password" name="password">
+        </div>
+        <div class="flex flex-col mb-2">
+            <label class=" mb-1" for="password_confirmation">Confirmar senha:</label>
+            <input  placeholder="Digite a senha novamente..." class="border px-4 h-9" type="password" name="password_confirmation">
+        </div>
+
+       {{-- submit btn --}}
+       <input title="cadastrar" class="h-9 flex items-center justify-center px-2 bg-orange-500 text-white font-medium cursor-pointer mr-0 ml-auto"  type="submit" value="Cadastrar">
        </div>
     
     </form>

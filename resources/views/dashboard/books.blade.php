@@ -31,7 +31,7 @@
     </div>
 
     {{-- create book form --}}
-    <form class="book_form px-4 py-3 bg-white shadow-md w-full " action="{{ route('book_create') }}"  method="POST" enctype="multipart/form-data">
+    <form class="book_form px-4 py-3 bg-white shadow-md w-full text-sm" action="{{ route('book_create') }}"  method="POST" enctype="multipart/form-data">
         @csrf
         @method('post')
         <h2 title="cadastrar novo livro" class="add_new_book flex items-center justify-between cursor-pointer">

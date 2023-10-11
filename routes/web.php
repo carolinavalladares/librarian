@@ -37,7 +37,7 @@ Route::middleware(RedirectIfAuthenticated::class)->group(function () {
     Route::post("/students/handle_register", [StudentController::class, 'handle_register'])->name('handle_student_register');
 });
 
-// protected routes go here
+// protected routes
 Route::middleware('auth:sanctum')->group(function () {
 
     // dashboard
@@ -66,6 +66,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // librarians
     Route::get('/librarians', [UserController::class, 'index'])->name('librarians');
+    Route::post('/librarians/handle_register', [AuthController::class, 'handle_register'])->name('handle_librarian_register');
 
     // Log out of admin dashboard
     Route::get("/logout", [AuthController::class, 'logout'])->name('logout');
