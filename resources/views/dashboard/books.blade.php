@@ -176,11 +176,12 @@
                         <th class="border ">Capa</th>
                         <th class="border ">Nome</th>
                         <th class="border ">Autor</th>
-                        <th class="border ">Cópias Disponíveis</th>
-                        <th class="border ">Estudantes</th>
+                        <th class="border ">Disponíveis</th>
+                        <th class="border ">Emprestados</th>
                     </thead>
                     <tbody class="[&>*:nth-child(even)]:bg-gray-100">
                         @foreach ($books as $book)
+                       
                             <tr >
                                 <td class="border px-2 text-center">{{$book->id}}</td>
                                 <td class=" px-2 overflow-hidden flex items-center justify-center ">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -67,6 +68,12 @@ Route::middleware('auth:sanctum')->group(function () {
     // librarians
     Route::get('/librarians', [UserController::class, 'index'])->name('librarians');
     Route::post('/librarians/handle_register', [AuthController::class, 'handle_register'])->name('handle_librarian_register');
+
+    // checkout
+    Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
+
+    // return
+    Route::get('/return', [CheckoutController::class, 'return'])->name('return');
 
     // Log out of admin dashboard
     Route::get("/logout", [AuthController::class, 'logout'])->name('logout');

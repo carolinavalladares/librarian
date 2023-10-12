@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\StudentResource;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,7 @@ class StudentController extends Controller
 
             $students = Student::where('name', 'like', '%' . $search . '%')->get();
 
-            return view('dashboard.students', ['students' => $students, 'user' => $user]);
+            return view('dashboard.students', ['students' => StudentResource::collection($students), 'user' => $user]);
         }
 
         // handle filter
@@ -35,7 +36,7 @@ class StudentController extends Controller
             $students = Student::all();
         }
 
-        return view('dashboard.students', ['students' => $students, 'user' => $user]);
+        return view('dashboard.students', ['students' => StudentResource::collection($students), 'user' => $user]);
     }
 
     public function register()

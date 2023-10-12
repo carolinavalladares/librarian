@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    //
 
     public function index(Request $request)
     {
@@ -28,6 +27,7 @@ class UserController extends Controller
         return view('dashboard.librarians', ['user' => $user, 'librarians' => $librarians]);
     }
 
+    // dashboard
     public function dashboard()
     {
         $user = auth()->user();

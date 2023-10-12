@@ -3,6 +3,7 @@
 use App\Models\Genre;
 use App\Models\Author;
 use App\Models\Publisher;
+use App\Models\Student;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -23,6 +24,7 @@ return new class extends Migration {
             $table->integer('pages');
             $table->float('rating');
             $table->date('published_date');
+            $table->foreignIdFor(Student::class)->nullable();
             $table->foreignIdFor(Author::class);
             $table->foreignIdFor(Publisher::class);
             $table->foreignIdFor(Genre::class);
