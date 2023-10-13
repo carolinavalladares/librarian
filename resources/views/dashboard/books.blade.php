@@ -46,9 +46,9 @@
         <div class="max-h-0 overflow-hidden transition-all duration-500 form_container">
         <div class="flex items-start justify-start gap-2 mt-4">
             {{-- image --}}
-            <div class="relative" >
+            <div class="relative h-40 w-28 border" >
                 <button type="button" title="remover imagem" class="remove_image absolute text-xs w-full -top-4 text-red-500 hover:underline hidden">remover imagem</button>
-                <label class="label relative h-40 w-28 border-2 flex cursor-pointer overflow-hidden" for='image' >
+                <label  class="label relative h-40 w-28 flex cursor-pointer overflow-hidden" for='image' >
                     <div title="adicionar capa" class="absolute flex items-center justify-center flex-col text-gray-300 w-full h-full z-10">
                         <span class="text-4xl">+</span>
                         <span class="text-sm">Adicionar capa</span>
@@ -64,12 +64,12 @@
             <div class="flex-1">
                 {{-- title --}}
                 <div >
-                    <label class="text-sm leading-none" for='title' >Título do livro:</label>
+                    <label class="font-medium text-xs" class="text-sm leading-none" for='title' >Título do livro:</label>
                     <input placeholder="Digite o título do livro..." class="border h-9 px-4 text-sm w-full" type="text" name="title" id="title" >
                 </div>
                 {{-- description --}}
                 <div >
-                    <label class="text-sm leading-none" for='description' >Descrição do livro:</label>
+                    <label class="font-medium text-xs" class="text-sm leading-none" for='description' >Descrição do livro:</label>
                     <textarea placeholder="Digite a descrição do livro..." class="border py-2 px-4 text-sm w-full min-h-[50px]" type="text" name="description" id="description" ></textarea>
                 </div>
             </div>
@@ -77,42 +77,42 @@
             
             
             
-            <div class="flex gap-2 items-end">
+            <div class="flex flex-col gap-2 items-end lg:flex-row">
                 {{-- ISBN code --}}
-                <div class=" flex-1">
-                    <label class="text-sm leading-none mb-1" for='ISBN' >ISBN:</label>
+                <div class="lg:flex-1 w-full">
+                    <label class="font-medium text-xs" class="text-sm leading-none mb-1" for='ISBN' >ISBN:</label>
                     <input placeholder="Digite código ISBN..." class="border h-9 px-4 text-sm w-full" type="number" name="ISBN" id="ISBN" >
                 </div>
                 {{-- published date --}}
-                <div class="flex flex-col flex-1">
-                    <label class="text-sm leading-none mb-1" for="published_date">Data de publicação</label>
+                <div class="flex flex-col w-full lg:flex-1">
+                    <label class="font-medium text-xs" class="text-sm leading-none mb-1" for="published_date">Data de publicação</label>
                     <input class="h-9 px-4 border" type="date" name="published_date" id="published_date">
                 </div>
             </div>
             
 
-            <div class="my-2 flex items-center gap-1">
+            <div class="my-2 flex flex-col items-center gap-1 lg:flex-row">
                 {{-- pages --}}
-                <div class="flex flex-col flex-1">
-                    <label class="text-sm leading-none mb-2" for='pages' >Número de páginas:</label>
+                <div class="flex flex-col w-full lg:flex-1 ">
+                    <label class="font-medium text-xs" class="text-sm leading-none mb-2" for='pages' >Número de páginas:</label>
                     <input placeholder="Número de páginas..." class="border h-9 px-4 text-sm" type="number" name="pages" id="pages" >
                 </div>
                 {{-- Avaliação --}}
-                <div class="flex flex-col flex-1">
-                    <label class="text-sm leading-none mb-2" for='rating' >Avaliação:</label>
+                <div class="flex flex-col w-full lg:flex-1">
+                    <label class="font-medium text-xs" class="text-sm leading-none mb-2" for='rating' >Avaliação:</label>
                     <input placeholder="Avaliação 1 - 5..." class="border h-9 px-4 text-sm" type="number" name="rating" id="rating" max="5" min="0" step=".10" >
                 </div>
                 {{-- Quantity --}}
-                <div class="flex flex-col flex-1">
-                    <label class="text-sm leading-none mb-2" for='quantity' >Quantidade:</label>
+                <div class="flex flex-col w-full lg:flex-1">
+                    <label class="font-medium text-xs" class="text-sm leading-none mb-2" for='quantity' >Quantidade:</label>
                     <input placeholder="Quantidade de cópias..." class="border h-9 px-4 text-sm" type="number" name="quantity" id="quantity" min="0" >
                 </div>
             </div>
 
-            <div class="text-sm flex items-center gap-1 mb-2">
-                <div class="flex flex-col flex-1">
+            <div class="text-sm flex flex-col items-center gap-1 mb-2  lg:flex-row">
+                <div class="flex flex-col w-full lg:flex-1">
                     {{-- author select --}}
-                    <label for="author_id">Autor do livro:</label>
+                    <label class="font-medium text-xs" for="author_id">Autor do livro:</label>
                     <select class="cursor-pointer border h-9 px-2" name="author_id" id="author_id" title="Escolher autor">
                         <option class="opacity-30" disabled selected value={{null}}>Escolher autor</option>
                         @foreach ($authors as $author )
@@ -120,9 +120,9 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="flex flex-col flex-1">
+                <div class="flex flex-col w-full lg:flex-1">
                     {{-- publisher select --}}
-                    <label for="publisher_id">Editora do livro:</label>
+                    <label class="font-medium text-xs" for="publisher_id">Editora do livro:</label>
                     <select class="cursor-pointer border h-9 px-2" name="publisher_id" id="publisher_id" title="Escolher editora">
                         <option class="opacity-30" disabled selected value={{null}}>Escolher editora</option>
                         @foreach ($publishers as $publisher )
@@ -130,9 +130,9 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="flex flex-col flex-1">
+                <div class="flex flex-col w-full lg:flex-1">
                     {{-- genre select --}}
-                    <label for="genre_id">Categoria do livro:</label>
+                    <label  class="font-medium text-xs" for="genre_id">Categoria do livro:</label>
                     <select class="cursor-pointer border h-9 px-2" name="genre_id" id="genre_id" title="Escolher categoria">
                         <option class="opacity-30" disabled selected value={{null}}>Escolher categoria</option>
                         @foreach ($genres as $genre )
