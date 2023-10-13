@@ -36,7 +36,7 @@
        <div class="bg-white shadow-md  p-4">
         <h2 class="font-semibold mb-2">Nova Retirada</h2>
             
-        <div class="flex items-center justify-center mb-2">
+        <div class="flex items-center justify-center mb-2 gap-2">
                 <x-search-bar :placeholder="'Buscar livro...'" />
             </div>
       

@@ -151,7 +151,7 @@
     
     {{-- book list --}}
     <div class="mt-2">
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between gap-2">
             <h2 class="font-semibold">Livros</h2>
 
 
