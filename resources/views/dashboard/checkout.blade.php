@@ -76,7 +76,7 @@
            
 
             {{-- submit btn --}}
-            <input title="concluir" class="h-9 flex items-center justify-center px-2 bg-orange-500 text-white font-medium cursor-pointer mr-0 ml-auto" type="submit" value="Concluir">
+            <input title="concluir" class="h-9 text-sm flex items-center justify-center px-2 bg-orange-500 text-white font-medium cursor-pointer mr-0 ml-auto" type="submit" value="Concluir">
         </form>
     </div>
     </section>

@@ -151,16 +151,16 @@
     
     {{-- book list --}}
     <div class="mt-2">
-        <div class="flex items-end justify-between gap-2">
-            <h2 class="font-semibold">Livros</h2>
+        <div class="grid grid-cols-2 grid-rows-2 sm:flex sm:items-end sm:justify-between gap-2">
+            <h2 class="font-semibold row-start-2 row-span-1 flex items-end justify-start">Livros</h2>
 
 
-            <div class="w-full max-w-[400px]">
+            <div class="col-span-full row-span-1 w-full sm:flex-1 sm:max-w-[400px]">
                 {{-- search --}}
                 <x-search-bar :placeholder="'Buscar livro...'" />
             </div>
            
-            <span class="text-xs font-medium text-gray-600 mr-1">
+            <span class="text-xs font-medium text-gray-600 mr-1 flex items-end justify-end">
                   {{$books->count()}} 
                   @if ($books->count() > 1 || $books->count() == 0)
                     livros
@@ -170,11 +170,11 @@
             </span>
         </div>
 
-        <div class="mt-2">
+        <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
             @if($books->count() > 0)
                 @foreach ($books as $book)
                 {{-- display each book --}}
-                    <x-book-item :id="$book->id" :cover-image="$book->image" :title="$book->title" :author="$book->author->name" :available="$book->quantity - $book->students->count()" :borrowed="$book->students->count()" />
+                    <x-book-item :book="$book" />
                 @endforeach
             @else
                 @if(request()->query(('search')))

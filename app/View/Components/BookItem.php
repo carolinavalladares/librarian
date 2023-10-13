@@ -2,9 +2,11 @@
 
 namespace App\View\Components;
 
+use App\Http\Resources\BookResource;
 use Closure;
-use Illuminate\Contracts\View\View;
+
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
 
 class BookItem extends Component
 {
@@ -12,12 +14,7 @@ class BookItem extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public int $id,
-        public string $title,
-        public string $author,
-        public string $available,
-        public string $borrowed,
-        public string $coverImage
+        public BookResource $book
     ) {
         //
     }

@@ -68,21 +68,21 @@
     
     {{-- librarians  list --}}
     <div class="mt-2">
-        <div class="flex items-end justify-between gap-2">
-            <h2 class="font-semibold">Bibiotecários</h2>
+        <div class="grid grid-cols-2 grid-rows-2 sm:flex sm:items-end sm:justify-between gap-2">
+            <h2 class="font-semibold row-start-2 row-span-1 flex items-end justify-start">Bibliotecários</h2>
 
 
-            <div class="w-full max-w-[400px]">
+            <div class="col-span-full row-span-1 w-full sm:flex-1 sm:max-w-[400px]">
                 {{-- search --}}
-                <x-search-bar :placeholder="'Buscar bibliotecário'" />
+                <x-search-bar :placeholder="'Buscar bibliotecário...'" />
             </div>
            
-            <span class="text-xs font-medium text-gray-600 mr-1">
+            <span class="text-xs font-medium text-gray-600 mr-1 flex items-end justify-end">
                   {{$librarians->count()}} 
                   @if ($librarians->count() > 1 || $librarians->count() == 0)
-                  bibiotecários
+                    bibliotecários
                   @else
-                  bibiotecário
+                  bibliotecário
                   @endif
             </span>
         </div>

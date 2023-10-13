@@ -40,24 +40,23 @@
 
     {{-- genre list --}}
     <div class="mt-2">
-        <div class="flex items-end justify-between gap-2">
-            <h2 class="font-semibold">Categorias</h2>
+        <div class="grid grid-cols-2 grid-rows-2 sm:flex sm:items-end sm:justify-between gap-2">
+            <h2 class="font-semibold row-start-2 row-span-1 flex items-end justify-start">Categorias</h2>
 
-            <div class="w-full max-w-[400px]">
+
+            <div class="col-span-full row-span-1 w-full sm:flex-1 sm:max-w-[400px]">
                 {{-- search --}}
-                <x-search-bar  :placeholder="'Buscar categoria'" />
+                <x-search-bar :placeholder="'Buscar categoria...'" />
             </div>
-
-          
-                <span class="text-xs font-medium text-gray-600 mr-1">
-                    {{$genres->count()}} 
-                    @if ($genres->count() > 1 ||$genres->count() == 0)
-                     categorias
-                    @else
-                     categoria
-                    @endif
-                </span>
            
+            <span class="text-xs font-medium text-gray-600 mr-1 flex items-end justify-end">
+                  {{$genres->count()}} 
+                  @if ($genres->count() > 1 || $genres->count() == 0)
+                    categorias
+                  @else
+                   categoria
+                  @endif
+            </span>
         </div>
 
         <div class="mt-2 p-4 bg-white shadow-md">

@@ -42,24 +42,23 @@
         
             {{-- publisher list --}}
             <div class="mt-2">
-                <div class="flex items-end justify-between gap-2">
-                    <h2 class="font-semibold">Editoras</h2>
-
-                    <div class="w-full max-w-[400px]">
+                <div class="grid grid-cols-2 grid-rows-2 sm:flex sm:items-end sm:justify-between gap-2">
+                    <h2 class="font-semibold row-start-2 row-span-1 flex items-end justify-start">Editoras</h2>
+        
+        
+                    <div class="col-span-full row-span-1 w-full sm:flex-1 sm:max-w-[400px]">
                         {{-- search --}}
-                        <x-search-bar  :placeholder="'Buscar editora'" />
+                        <x-search-bar :placeholder="'Buscar editora...'" />
                     </div>
-
-                  
-                        <span class="text-xs font-medium text-gray-600 mr-1">
-                            {{$publishers->count()}} 
-                            @if ($publishers->count() > 1 || $publishers->count() == 0)
-                             editoras
-                            @else
-                             editora
-                            @endif
-                        </span>
                    
+                    <span class="text-xs font-medium text-gray-600 mr-1 flex items-end justify-end">
+                          {{$publishers->count()}} 
+                          @if ($publishers->count() > 1 || $publishers->count() == 0)
+                            editoras
+                          @else
+                           editora
+                          @endif
+                    </span>
                 </div>
         
                 <div class="mt-2 p-4 bg-white shadow-md">

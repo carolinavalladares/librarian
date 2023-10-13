@@ -16,11 +16,11 @@
             <div class="w-full"> 
                 {{-- filtrar --}}
                 <p class="text-xs font-medium mb-1">Filtrar:</p>
-                <div class="text-sm font-medium flex items-center justify-center bg-white shadow-sm p-1 rounded-sm gap-2 mb-2">
-                    <a name='all' class="filter_link px-2" href="{{route('students')}}">Todos</a>
-                    <a name='approved' class="filter_link px-2" href="{{route('students', ['filter'=>'approved'])}}">Aprovados</a>
-                    <a name='denied' class="filter_link px-2" href="{{route('students', ['filter'=>'denied'])}}">Negados</a>
-                    <a name='null' class="filter_link px-2" href="{{route('students', ['filter'=>'null'])}}">Pendentes</a>
+                <div class="text-sm font-medium flex flex-col w-full items-center justify-center bg-white shadow-sm p-1 rounded-sm gap-2 mb-2 sm:flex-row">
+                    <a name='all' class="filter_link px-2 w-full text-center h-7 flex items-center justify-center sm:h-auto" href="{{route('students')}}">Todos</a>
+                    <a name='approved' class="filter_link px-2 w-full text-center h-7 flex items-center justify-center sm:h-auto" href="{{route('students', ['filter'=>'approved'])}}">Aprovados</a>
+                    <a name='denied' class="filter_link px-2 w-full text-center h-7 flex items-center justify-center sm:h-auto" href="{{route('students', ['filter'=>'denied'])}}">Negados</a>
+                    <a name='null'class="filter_link px-2 w-full text-center h-7 flex items-center justify-center sm:h-auto" href="{{route('students', ['filter'=>'null'])}}">Pendentes</a>
                 </div>
                 {{-- buscar --}}
                 <x-search-bar  :placeholder="'Buscar estudante'" />
