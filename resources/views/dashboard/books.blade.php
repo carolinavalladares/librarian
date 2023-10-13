@@ -168,34 +168,12 @@
             </span>
         </div>
 
-        <div class="mt-2 p-4 bg-white shadow-md">
+        <div class="mt-2">
             @if($books->count() > 0)
-                <table class="border w-full text-sm">
-                    <thead>
-                        <th class="border ">ID</th>
-                        <th class="border ">Capa</th>
-                        <th class="border ">Nome</th>
-                        <th class="border ">Autor</th>
-                        <th class="border ">Disponíveis</th>
-                        <th class="border ">Emprestados</th>
-                    </thead>
-                    <tbody class="[&>*:nth-child(even)]:bg-gray-100">
-                        @foreach ($books as $book)
-                       
-                            <tr >
-                                <td class="border px-2 text-center">{{$book->id}}</td>
-                                <td class=" px-2 overflow-hidden flex items-center justify-center ">
-                                    <img class="w-11 block" src="{{asset('/assets/images/books/' . $book->image)}}" alt="capa do livro">
-                                </td>
-                                <td class="border  px-2">{{$book->title}}</td>                               
-                                <td class="border  px-2 text-center">{{$book->author->name}}</td>
-                                <td class="border  px-2 text-center">{{$book->quantity - $book->students->count()}}</td>
-                                <td class="border  px-2 text-center">{{$book->students->count()}}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                   
-                </table>
+                @foreach ($books as $book)
+                {{-- display each book --}}
+                    <x-book-item :id="$book->id" :cover-image="$book->image" :title="$book->title" :author="$book->author->name" :available="$book->quantity - $book->students->count()" :borrowed="$book->students->count()" />
+                @endforeach
             @else
                 @if(request()->query(('search')))
                 <div class="w-full h-20 flex items-center justify-center text-gray-500">
