@@ -30,24 +30,26 @@
         <h2 class="font-semibold mb-2">Cadastrar nova categoria</h2>
         <div class="flex items-end justify-center gap-2">
             <div class="flex-1 flex flex-col">
-                <label class="text-sm leading-none mb-2" for='name' >Nome da categoria:</label>
+                <label class="text-xs font-medium leading-none mb-1" for='name' >Nome da categoria:</label>
                 <input placeholder="Digite o nome da categoria..." class="border h-9 px-4 text-sm" type="text" name="name" id="name" >
             </div>
-            <input title="cadastrar" class="h-9 flex items-center justify-center px-2 bg-orange-500 text-white font-medium cursor-pointer"  type="submit" value="Cadastrar">
+            <input title="cadastrar" class="h-9 text-sm flex items-center justify-center px-2 bg-orange-500 text-white font-medium cursor-pointer"  type="submit" value="Cadastrar">
         </div>
         
     </form>
 
     {{-- genre list --}}
     <div class="mt-2">
-        <div class="flex items-center justify-between gap-2">
+        <div class="flex items-end justify-between gap-2">
             <h2 class="font-semibold">Categorias</h2>
 
-            {{-- search --}}
-            <x-search-bar  :placeholder="'Buscar categoria'" />
+            <div class="w-full max-w-[400px]">
+                {{-- search --}}
+                <x-search-bar  :placeholder="'Buscar categoria'" />
+            </div>
 
           
-                <span class="text-sm text-gray-600 mr-1">
+                <span class="text-xs font-medium text-gray-600 mr-1">
                     {{$genres->count()}} 
                     @if ($genres->count() > 1 ||$genres->count() == 0)
                      categorias

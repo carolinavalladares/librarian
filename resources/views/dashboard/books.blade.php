@@ -151,14 +151,16 @@
     
     {{-- book list --}}
     <div class="mt-2">
-        <div class="flex items-center justify-between gap-2">
+        <div class="flex items-end justify-between gap-2">
             <h2 class="font-semibold">Livros</h2>
 
 
-            {{-- search --}}
-            <x-search-bar :placeholder="'Buscar livro...'" />
+            <div class="w-full max-w-[400px]">
+                {{-- search --}}
+                <x-search-bar :placeholder="'Buscar livro...'" />
+            </div>
            
-            <span class="text-sm text-gray-600 mr-1">
+            <span class="text-xs font-medium text-gray-600 mr-1">
                   {{$books->count()}} 
                   @if ($books->count() > 1 || $books->count() == 0)
                     livros

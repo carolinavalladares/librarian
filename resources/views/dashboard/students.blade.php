@@ -12,11 +12,11 @@
 
     <section>
         <h1 class="text-lg font-semibold ">Estudantes cadastrados</h1>
-        <div class="flex items-end justify-between gap-2 mb-3">
-            <div> 
+        <div class="flex flex-col items-end justify-end gap-2">
+            <div class="w-full"> 
                 {{-- filtrar --}}
                 <p class="text-xs font-medium mb-1">Filtrar:</p>
-                <div class="text-sm flex items-center justify-center bg-white shadow-md p-1 rounded-sm gap-2">
+                <div class="text-sm font-medium flex items-center justify-center bg-white shadow-sm p-1 rounded-sm gap-2 mb-2">
                     <a name='all' class="filter_link px-2" href="{{route('students')}}">Todos</a>
                     <a name='approved' class="filter_link px-2" href="{{route('students', ['filter'=>'approved'])}}">Aprovados</a>
                     <a name='denied' class="filter_link px-2" href="{{route('students', ['filter'=>'denied'])}}">Negados</a>
@@ -24,6 +24,7 @@
                 </div>
                 {{-- buscar --}}
                 <x-search-bar  :placeholder="'Buscar estudante'" />
+                
             </div>
             
 
@@ -31,7 +32,7 @@
             <div>
                 <p>
                    
-                <span class="text-sm text-gray-600 mr-1">
+                <span class="text-xs font-medium text-gray-600 mr-1">
                     {{$students->count()}} 
                     @if ($students->count() > 1 || $students->count() == 0)
                      estudantes

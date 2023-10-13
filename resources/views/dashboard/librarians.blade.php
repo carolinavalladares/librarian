@@ -44,19 +44,19 @@
      {{-- fields container --}}
        <div class="max-h-0 overflow-hidden transition-all duration-500 form_container text-sm">
         <div class="pt-2 flex flex-col mb-2">
-            <label class=" mb-1" for="name">Nome:</label>
+            <label class="text-xs font-medium mb-1" for="name">Nome:</label>
             <input placeholder="Digite o nome..."  class="border px-4 h-9"  type="text" name="name">
         </div>
         <div class="flex flex-col mb-2">
-            <label class=" mb-1" for="email">E-mail:</label>
+            <label class="text-xs font-medium mb-1" for="email">E-mail:</label>
             <input placeholder="Digite o e-mail..." class="border px-4 h-9"  type="email" name="email">
         </div>
         <div class="flex flex-col mb-2">
-            <label class=" mb-1" for="password">Senha:</label>
+            <label class="text-xs font-medium mb-1" for="password">Senha:</label>
             <input placeholder="Digite a senha..." class="border px-4 h-9" type="password" name="password">
         </div>
         <div class="flex flex-col mb-2">
-            <label class=" mb-1" for="password_confirmation">Confirmar senha:</label>
+            <label class="text-xs font-medium mb-1" for="password_confirmation">Confirmar senha:</label>
             <input  placeholder="Digite a senha novamente..." class="border px-4 h-9" type="password" name="password_confirmation">
         </div>
 
@@ -68,14 +68,16 @@
     
     {{-- librarians  list --}}
     <div class="mt-2">
-        <div class="flex items-center justify-between gap-2">
+        <div class="flex items-end justify-between gap-2">
             <h2 class="font-semibold">Bibiotecários</h2>
 
 
-            {{-- search --}}
-            <x-search-bar :placeholder="'Buscar bibliotecário'" />
+            <div class="w-full max-w-[400px]">
+                {{-- search --}}
+                <x-search-bar :placeholder="'Buscar bibliotecário'" />
+            </div>
            
-            <span class="text-sm text-gray-600 mr-1">
+            <span class="text-xs font-medium text-gray-600 mr-1">
                   {{$librarians->count()}} 
                   @if ($librarians->count() > 1 || $librarians->count() == 0)
                   bibiotecários

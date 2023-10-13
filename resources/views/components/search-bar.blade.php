@@ -1,6 +1,8 @@
 @props(['placeholder'=>$placeholder])
 
-<div class="flex-1 max-w-[400px]">
+
+
+<div class=" w-full max-w-full">
     <form class="search_form  bg-white shadow   px-2 h-7  flex items-center justify-center rounded-sm text-sm " method="GET">
        @csrf
         <input  class="search_input flex-1 outline-none px-1 placeholder:font-light" type="text" placeholder="{{$placeholder}}">
