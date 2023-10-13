@@ -14,6 +14,7 @@ class BookResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+
         return [
             'id' => $this->id,
             'title' => $this->title,
@@ -27,7 +28,8 @@ class BookResource extends JsonResource
             'author' => $this->author,
             'publisher' => $this->publisher,
             'genre' => $this->genre,
-            'students' => $this->students
+            'students' => $this->students,
+
         ];
     }
 }

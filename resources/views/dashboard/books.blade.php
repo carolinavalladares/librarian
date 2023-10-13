@@ -121,7 +121,7 @@
                     </select>
                 </div>
                 <div class="flex flex-col flex-1">
-                    {{-- author select --}}
+                    {{-- publisher select --}}
                     <label for="publisher_id">Editora do livro:</label>
                     <select class="cursor-pointer border h-9 px-2" name="publisher_id" id="publisher_id" title="Escolher editora">
                         <option class="opacity-30" disabled selected value={{null}}>Escolher editora</option>
@@ -131,7 +131,7 @@
                     </select>
                 </div>
                 <div class="flex flex-col flex-1">
-                    {{-- author select --}}
+                    {{-- genre select --}}
                     <label for="genre_id">Categoria do livro:</label>
                     <select class="cursor-pointer border h-9 px-2" name="genre_id" id="genre_id" title="Escolher categoria">
                         <option class="opacity-30" disabled selected value={{null}}>Escolher categoria</option>
@@ -156,7 +156,7 @@
 
 
             {{-- search --}}
-            <x-search-bar :placeholder="'Buscar livro'" />
+            <x-search-bar :placeholder="'Buscar livro...'" />
            
             <span class="text-sm text-gray-600 mr-1">
                   {{$books->count()}} 
@@ -189,7 +189,7 @@
                                 </td>
                                 <td class="border  px-2">{{$book->title}}</td>                               
                                 <td class="border  px-2 text-center">{{$book->author->name}}</td>
-                                <td class="border  px-2 text-center">{{$book->quantity}}</td>
+                                <td class="border  px-2 text-center">{{$book->quantity - $book->students->count()}}</td>
                                 <td class="border  px-2 text-center">{{$book->students->count()}}</td>
                             </tr>
                         @endforeach

@@ -23,6 +23,7 @@
     @stack('book_page')
     @stack('student_page')
     @stack('librarian_page')
+    @stack('checkout_page')
     @stack('search_bar')
     
 
