@@ -5,7 +5,7 @@
         "dev": "vite",
         "build": "vite build",
         "start": "concurrently \"npm run dev\" \" php artisan serve \" ",
-        "admin_init" : "php artisan db:seed"
+        "seed_data" : "php artisan db:seed"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.16",

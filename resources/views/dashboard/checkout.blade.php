@@ -52,7 +52,7 @@
                    <div class="ml-2">
                     @foreach ($books as $book)
                         @if($book->quantity - $book->students->count() > 0)
-                        <div class="">
+                        <div class="flex items-center justify-start gap-1">
                             <input class="book_checkbox accent-orange-500" type="checkbox" value="{{$book->id}}" name="books[]" id="{{$book->id}}">
                             <label class="text-sm font-medium" for="{{$book->id}}">{{$book->title}}</label>
                         </div>

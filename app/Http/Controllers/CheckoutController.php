@@ -68,11 +68,12 @@ class CheckoutController extends Controller
             $book = BookResource::make($book);
 
             if ($student->borrowed_books->contains($book->id)) {
-                continue;
+                // if one of the selected books is already with the student, return error
+                return redirect()->back()->withErrors(['book_already_borrowed' => 'Um ou mais dos livros selecionados já está emprestado para este estudante.']);
+
+            } else {
+                $student->borrowed_books()->attach($book->id);
             }
-
-
-            $student->borrowed_books()->attach($book->id);
         }
 
 

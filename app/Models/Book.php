@@ -33,9 +33,9 @@ class Book extends Model
     {
         return $this->belongsTo(Author::class);
     }
-    public function genre()
+    public function genres()
     {
-        return $this->hasMany(Genre::class);
+        return $this->belongsToMany(Genre::class, 'book_genre');
     }
 
     public function publisher()

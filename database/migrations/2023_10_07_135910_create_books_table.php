@@ -27,7 +27,7 @@ return new class extends Migration {
             $table->foreignIdFor(Student::class)->nullable();
             $table->foreignIdFor(Author::class);
             $table->foreignIdFor(Publisher::class);
-            $table->foreignIdFor(Genre::class);
+            $table->foreignIdFor(Genre::class)->nullable();
             $table->timestamps();
         });
     }
