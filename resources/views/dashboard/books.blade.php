@@ -170,19 +170,21 @@
             </span>
         </div>
 
-        <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+        <div class="mt-2 ">
             @if($books->count() > 0)
-                @foreach ($books as $book)
-                {{-- display each book --}}
-                    <x-book-item :book="$book" />
-                @endforeach
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                    @foreach ($books as $book)
+                    {{-- display each book --}}
+                        <x-book-item :book="$book" />
+                    @endforeach
+                </div>                
             @else
                 @if(request()->query(('search')))
-                <div class="w-full h-20 flex items-center justify-center text-gray-500">
+                <div class="w-full bg-white h-20 flex items-center justify-center text-gray-500">
                     Nunhum resultado encontrado
                 </div>
                 @else
-                    <div class="w-full h-20 flex items-center justify-center text-gray-500">
+                    <div class="w-full bg-white h-20 flex items-center justify-center text-gray-500">
                         Nunhum livro cadastrado até o momento
                     </div>
                 @endif

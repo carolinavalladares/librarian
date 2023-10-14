@@ -49,7 +49,7 @@ class StudentController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'email' => 'required|unique:students|email',
-            'registration' => 'required|unique:students'
+            'registration' => 'required|unique:students|min:12|max:12'
         ]);
 
         Student::create($data);
