@@ -18,14 +18,16 @@ class BookController extends Controller
         $authors = Author::all();
         $publishers = Publisher::all();
         $user = auth()->user();
+        $amountPerPage = 4;
+
 
         // handle search
         $search = $request->input('search');
 
         if ($request->has('search')) {
-            $books = Book::where('title', 'like', '%' . $search . '%')->get();
+            $books = Book::where('title', 'like', '%' . $search . '%')->paginate($amountPerPage);
         } else {
-            $books = BookResource::collection(Book::all());
+            $books = Book::paginate($amountPerPage);
         }
 
         return view('dashboard.books', ['books' => BookResource::collection($books), 'genres' => $genres, 'authors' => $authors, 'publishers' => $publishers, 'user' => $user]);

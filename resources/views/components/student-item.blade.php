@@ -1,5 +1,7 @@
 @props(['student'=>$student])
 
+{{-- TODO: add possibility to edit user status and other info --}}
+
 <div class="shadow-md bg-white p-4 mb-2 flex flex-col sm:flex-row-reverse sm:justify-between sm:items-start">
     {{-- approved status flag --}}
    <div class="text-xs font-medium flex items-center justify-end gap-1">   

@@ -130,6 +130,8 @@
                         @endforeach
                     </select>
                 </div>
+
+                {{-- TODO: change genre selection to make it possible to select more than one --}}
                 <div class="flex flex-col w-full lg:flex-1">
                     {{-- genre select --}}
                     <label  class="font-medium text-xs" for="genre_id">Categoria do livro:</label>
@@ -161,8 +163,8 @@
             </div>
            
             <span class="text-xs font-medium text-gray-600 mr-1 flex items-end justify-end">
-                  {{$books->count()}} 
-                  @if ($books->count() > 1 || $books->count() == 0)
+                  {{$books->total()}} 
+                  @if ($books->total() > 1 || $books->total() == 0)
                     livros
                   @else
                    livro
@@ -172,12 +174,17 @@
 
         <div class="mt-2 ">
             @if($books->count() > 0)
+            <div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
                     @foreach ($books as $book)
                     {{-- display each book --}}
                         <x-book-item :book="$book" />
                     @endforeach
-                </div>                
+                </div> 
+                <div>
+                    {{$books->links()}}    
+                </div> 
+            </div>                             
             @else
                 @if(request()->query(('search')))
                 <div class="w-full bg-white h-20 flex items-center justify-center text-gray-500">

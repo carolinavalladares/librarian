@@ -9,7 +9,6 @@
 
 @section('content')
     <section>
-
         {{-- validation messages --}}
       <div>
         @if (session('success'))
@@ -40,6 +39,8 @@
                 <x-search-bar :placeholder="'Buscar livro...'" />
             </div>
       
+
+        {{-- TODO: style form better --}}
 
         {{-- This form is being submitted through Javascript (/resources/js/checkout/checkout_form.js) --}}
         <form class="checkout_form" action="{{route('handle_checkout')}}" method="POST">
