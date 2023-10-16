@@ -1,5 +1,7 @@
 const checkoutForm = document.querySelector(".checkout_form");
 const bookCheckboxes = Array.from(document.querySelectorAll(".book_checkbox"));
+const studentSelect = document.querySelector(".student_select");
+const checkboxContainer = document.querySelector(".input_container");
 
 // mark checkboxes if they are in local storage array
 setCheckboxes();
@@ -25,14 +27,42 @@ bookCheckboxes.forEach((checkbox) => {
     });
 });
 
-checkoutForm.addEventListener("submit", (e) => {
+checkoutForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // reset localstorage
-    localStorage.removeItem("librarian.checkout.checked_items");
+    // get book ids array from local storage
+    const checked = getCheckedItems();
+
+    // get all checkboxes currently on the page
+    const formCheckboxes = Array.from(
+        document.querySelectorAll(".book_checkbox")
+    );
+
+    // get id from checkboxes currently on the page
+    const checkboxIds = formCheckboxes.map((item) => {
+        return item.getAttribute("value");
+    });
+
+    // include the checked books that are not currently on the page because of pagination or filter
+    checked.forEach((item) => {
+        if (!checkboxIds.includes(item)) {
+            const input = document.createElement("input");
+            input.setAttribute("type", "checkbox");
+            input.classList.add("hidden");
+            input.setAttribute("name", "books[]");
+            input.setAttribute("value", item);
+            input.setAttribute("id", item);
+            input.setAttribute("checked", true);
+
+            checkboxContainer.append(input);
+        }
+    });
 
     // submit
     e.currentTarget.submit();
+
+    // reset localstorage
+    localStorage.removeItem("librarian.checkout.checked_items");
 });
 
 function getCheckedItems() {

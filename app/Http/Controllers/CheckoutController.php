@@ -13,24 +13,25 @@ class CheckoutController extends Controller
     public function checkout(Request $request)
     {
         $user = auth()->user();
+        $bookAmount = 5;
 
         // get all approved users 
         $students = Student::where('approved', 'like', true)->get();
 
         // get all books
-        $books = Book::all();
+        $books = Book::paginate($bookAmount);
 
         // handle search
         $search = $request->input('search');
 
         if ($request->has('search')) {
-            $books = Book::where('title', 'like', '%' . $search . '%')->get();
+            $books = Book::where('title', 'like', '%' . $search . '%')->paginate($bookAmount);
         } else {
-            $books = BookResource::collection(Book::all());
+            $books = Book::paginate($bookAmount);
         }
 
 
-        return view('dashboard.checkout', ['user' => $user, 'students' => StudentResource::collection($students), 'books' => $books]);
+        return view('dashboard.checkout', ['user' => $user, 'students' => StudentResource::collection($students), 'books' => BookResource::collection($books)]);
     }
 
     public function handle_checkout(Request $request)

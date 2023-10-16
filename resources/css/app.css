@@ -4,6 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .checkbox-label:has(input:checked) {
+        @apply border-orange-500;
+    }
+    .checkbox-label:has(input:checked) > .fake-checkbox {
+        @apply bg-orange-500;
+        @apply border-orange-500;
+    }
+}
+
 :root {
     --font-family: "Montserrat", sans-serif;
 }
