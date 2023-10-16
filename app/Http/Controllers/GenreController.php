@@ -10,15 +10,16 @@ class GenreController extends Controller
 {
     public function index(Request $request)
     {
+        $amount = 15;
         $user = auth()->user();
 
-        $genres = Genre::all();
+        $genres = Genre::paginate($amount);
 
         // handle search
         if ($request->has('search')) {
             $search = $request->input('search');
 
-            $genres = Genre::where('name', 'like', '%' . $search . '%')->get();
+            $genres = Genre::where('name', 'like', '%' . $search . '%')->paginate($amount);
         }
 
         return view('dashboard.genres', ['genres' => $genres, 'user' => $user]);

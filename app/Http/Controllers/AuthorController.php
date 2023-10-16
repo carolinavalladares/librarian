@@ -10,14 +10,15 @@ class AuthorController extends Controller
 {
     public function index(Request $request)
     {
-        $authors = Author::all();
+        $amount = 15;
+        $authors = Author::paginate($amount);
         $user = auth()->user();
 
         // handle search
         if ($request->has('search')) {
             $search = $request->input('search');
 
-            $authors = Author::where('name', 'like', '%' . $search . '%')->get();
+            $authors = Author::where('name', 'like', '%' . $search . '%')->paginate($amount);
         }
 
         return view('dashboard.authors', ['authors' => $authors, 'user' => $user]);

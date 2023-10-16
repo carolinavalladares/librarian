@@ -18,7 +18,7 @@ class BookController extends Controller
         $authors = Author::all();
         $publishers = Publisher::all();
         $user = auth()->user();
-        $amountPerPage = 4;
+        $amountPerPage = 8;
 
 
         // handle search

@@ -33,8 +33,8 @@
                 <p>
                    
                 <span class="text-xs font-medium text-gray-600 mr-1">
-                    {{$students->count()}} 
-                    @if ($students->count() > 1 || $students->count() == 0)
+                    {{$students->total()}} 
+                    @if ($students->total() > 1 || $students->total() == 0)
                      estudantes
                     @else
                      estudante
@@ -47,11 +47,16 @@
 
         <div >
             
-            @if($students->count() > 0)
+            @if($students->total() > 0)
                 <div>
                     @foreach ( $students as $student )
                         <x-student-item :student="$student" />
                     @endforeach
+
+                      {{-- Pagination --}}
+                    <div>
+                        {{$students->links()}}
+                    </div>
                 </div>
       
                  @else
@@ -64,7 +69,9 @@
                             Nenhuma estudante cadastrado até o momento
                         </div>
                     @endif
-                @endif
+
+            @endif
+
         </div>
        
   

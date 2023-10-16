@@ -78,8 +78,8 @@
             </div>
            
             <span class="text-xs font-medium text-gray-600 mr-1 flex items-end justify-end">
-                  {{$librarians->count()}} 
-                  @if ($librarians->count() > 1 || $librarians->count() == 0)
+                  {{$librarians->total()}} 
+                  @if ($librarians->total() > 1 || $librarians->total() == 0)
                     bibliotecários
                   @else
                   bibliotecário
@@ -87,8 +87,8 @@
             </span>
         </div>
 
-        <div class="mt-2 p-4 bg-white shadow-md">
-            @if($librarians->count() > 0)
+        <div class="mt-2 ">
+            <div class="p-4 bg-white shadow-md">
                 <table class="border w-full text-sm">
                     <thead>
                         <th class="border ">ID</th>
@@ -105,15 +105,21 @@
                             </tr>
                         @endforeach
                     </tbody>
-                   
                 </table>
+            </div>
+            {{-- Pagination --}}
+            <div class="mt-2">
+                {{$librarians->links()}}
+            </div>
+            @if($librarians->total() > 0)
+                
             @else
                 @if(request()->query(('search')))
-                <div class="w-full h-20 flex items-center justify-center text-gray-500">
+                <div class="w-full h-20 flex items-center justify-center text-gray-500 p-4 bg-white shadow-md">
                     Nunhum resultado encontrado
                 </div>
                 @else
-                    <div class="w-full h-20 flex items-center justify-center text-gray-500">
+                    <div class="w-full h-20 flex items-center justify-center text-gray-500 p-4 bg-white shadow-md">
                         Nunhum bibliotecário cadastrado até o momento
                     </div>
                 @endif

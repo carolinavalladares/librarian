@@ -173,7 +173,7 @@
         </div>
 
         <div class="mt-2 ">
-            @if($books->count() > 0)
+            @if($books->total() > 0)
             <div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
                     @foreach ($books as $book)
@@ -181,6 +181,7 @@
                         <x-book-item :book="$book" />
                     @endforeach
                 </div> 
+                  {{-- Pagination --}}
                 <div>
                     {{$books->links()}}    
                 </div> 

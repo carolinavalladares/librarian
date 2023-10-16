@@ -10,14 +10,15 @@ class PublisherController extends Controller
 {
     public function index(Request $request)
     {
-        $publishers = Publisher::all();
+        $amount = 15;
+        $publishers = Publisher::paginate($amount);
         $user = auth()->user();
 
         // handle search
         if ($request->has('search')) {
             $search = $request->input('search');
 
-            $publishers = Publisher::where('name', 'like', '%' . $search . '%')->get();
+            $publishers = Publisher::where('name', 'like', '%' . $search . '%')->paginate($amount);
         }
 
         return view('dashboard.publishers', ['publishers' => $publishers, 'user' => $user]);

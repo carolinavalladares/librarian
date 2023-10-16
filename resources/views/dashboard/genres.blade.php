@@ -50,8 +50,8 @@
             </div>
            
             <span class="text-xs font-medium text-gray-600 mr-1 flex items-end justify-end">
-                  {{$genres->count()}} 
-                  @if ($genres->count() > 1 || $genres->count() == 0)
+                  {{$genres->total()}} 
+                  @if ($genres->total() > 1 || $genres->total() == 0)
                     categorias
                   @else
                    categoria
@@ -59,9 +59,10 @@
             </span>
         </div>
 
-        <div class="mt-2 p-4 bg-white shadow-md">
-            @if($genres->count() > 0)
-                <table class="border w-full text-sm">
+        <div class="mt-2">
+            @if($genres->total() > 0)
+            <div class="bg-white shadow-md p-4">
+                <table class="border w-full text-sm ">
                     <thead>
                         <th class="border">ID</th>
                         <th class="border">Nome</th>
@@ -76,18 +77,22 @@
                             </tr>
                         @endforeach
                     </tbody>
-                   
                 </table>
+            </div>
+            {{-- Pagination --}}
+            <div class="mt-2">
+                {{$genres->links()}}
+            </div>
             @else
-                @if(request()->query(('search')))
-                <div class="w-full h-20 flex items-center justify-center text-gray-500">
-                    Nunhum resultado encontrado
-                </div>
-                @else
-                <div class="w-full h-20 flex items-center justify-center text-gray-500">
-                    Nenhuma categoria cadastrada até o momento
-                </div>
-                @endif
+            @if(request()->query(('search')))
+            <div class="w-full h-20 flex items-center p-4 justify-center shadow-md bg-white text-gray-500">
+                Nunhum resultado encontrado
+            </div>
+            @else
+            <div class="w-full h-20 flex items-center p-4 justify-center shadow-md bg-white text-gray-500">
+                Nenhuma categoria cadastrada até o momento
+            </div>
+            @endif
             @endif
         </div>
     </div>

@@ -10,30 +10,29 @@ class StudentController extends Controller
 {
     public function index(Request $request)
     {
+        $amount = 15;
         $user = auth()->user();
-
         $filter = $request->input('filter');
-
-        $students = Student::all();
+        $students = Student::paginate($amount);
 
         // handle search
         if ($request->has('search')) {
             $search = $request->input('search');
 
-            $students = Student::where('name', 'like', '%' . $search . '%')->get();
+            $students = Student::where('name', 'like', '%' . $search . '%')->paginate($amount);
 
-            return view('dashboard.students', ['students' => StudentResource::collection($students), 'user' => $user]);
+            return view('dashboard.students', ['students' => $students, 'user' => $user]);
         }
 
         // handle filter
         if ($filter == "approved") {
-            $students = Student::where('approved', true)->get();
+            $students = Student::where('approved', true)->paginate($amount);
         } else if ($filter == "denied") {
-            $students = Student::where('approved', false)->get();
+            $students = Student::where('approved', false)->paginate($amount);
         } else if ($filter == "null") {
-            $students = Student::where('approved', null)->get();
+            $students = Student::where('approved', null)->paginate($amount);
         } else {
-            $students = Student::all();
+            $students = Student::paginate($amount);
         }
 
         return view('dashboard.students', ['students' => StudentResource::collection($students), 'user' => $user]);

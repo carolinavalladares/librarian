@@ -10,17 +10,18 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
+        $amount = 15;
         $user = auth()->user();
-        $librarians = User::all();
+        $librarians = User::paginate($amount);
 
 
         // handle search
         $search = $request->input('search');
 
         if ($request->has('search')) {
-            $librarians = User::where('name', 'like', '%' . $search . '%')->get();
+            $librarians = User::where('name', 'like', '%' . $search . '%')->paginate($amount);
         } else {
-            $librarians = User::all();
+            $librarians = User::paginate($amount);
         }
 
 

@@ -51,8 +51,8 @@
             </div>
            
             <span class="text-xs font-medium text-gray-600 mr-1 flex items-end justify-end">
-                  {{$authors->count()}} 
-                  @if ($authors->count() > 1 || $authors->count() == 0)
+                  {{$authors->total()}} 
+                  @if ($authors->total() > 1 || $authors->total() == 0)
                     autores
                   @else
                    autor
@@ -60,9 +60,10 @@
             </span>
         </div>
 
-        <div class="mt-2 p-4 bg-white shadow-md">
-            @if($authors->count() > 0)
-                <table class="border w-full text-sm">
+        <div class="mt-2">
+            @if($authors->total() > 0)
+            <div class="bg-white shadow-md p-4">
+                <table class="border w-full text-sm ">
                     <thead>
                         <th class="border">ID</th>
                         <th class="border">Nome</th>
@@ -77,15 +78,19 @@
                             </tr>
                         @endforeach
                     </tbody>
-                   
                 </table>
+            </div>
+            {{-- Pagination --}}
+            <div class="mt-2">
+                {{$authors->links()}}
+            </div>
             @else
             @if(request()->query(('search')))
-            <div class="w-full h-20 flex items-center justify-center text-gray-500">
+            <div class="w-full h-20 flex items-center p-4 justify-center shadow-md bg-white text-gray-500">
                 Nunhum resultado encontrado
             </div>
             @else
-            <div class="w-full h-20 flex items-center justify-center text-gray-500">
+            <div class="w-full h-20 flex items-center p-4 justify-center shadow-md bg-white text-gray-500">
                 Nenhum autor cadastrado até o momento
             </div>
             @endif
