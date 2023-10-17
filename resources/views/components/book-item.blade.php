@@ -18,6 +18,18 @@
             <p class="font-medium text-xs sm:text-sm">{{$book->author->name}}</p>
         </div>
 
+         {{-- availability info --}}
+         <div class="flex flex-col items-start justify-start">
+            <div class="flex items-center justify-between gap-1 leading-none mb-1 border-b w-full">
+                <p class="text-xs font-medium">Disponíveis:</p>
+                <p class="font-medium">{{$book->quantity - $book->students->count()}}</p>
+            </div>
+            <div class="flex items-center justify-between gap-1 leading-none mb-1 border-b w-full">
+                <p class="text-xs font-medium">Emprestados:</p>
+                <p class="font-medium">{{$book->students->count()}}</p>
+            </div>
+        </div>
+
         <div>
             <p class="text-xs font-medium">Categorias:</p>
             <div class="flex flex-wrap gap-1 ">
@@ -28,17 +40,7 @@
             </div>
         </div>
 
-        {{-- availability info --}}
-        {{-- <div class="flex flex-col items-start justify-start">
-            <div class="flex items-center gap-1 ">
-                <p class="text-xs font-medium">Disponíveis:</p>
-                <p class="font-medium">{{$book->quantity - $book->students->count()}}</p>
-            </div>
-            <div class="flex items-center gap-1 ">
-                <p class="text-xs font-medium">Emprestados:</p>
-                <p class="font-medium">{{$book->students->count()}}</p>
-            </div>
-        </div> --}}
+       
     </div>
     
 </div>

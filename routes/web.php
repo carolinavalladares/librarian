@@ -73,7 +73,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
     Route::post('/checkout/handle', [CheckoutController::class, 'handle_checkout'])->name('handle_checkout');
 
-    // return
+    // return books
     Route::get('/return', [CheckoutController::class, 'return'])->name('return');
     Route::post('/handle_return/{student}', [CheckoutController::class, 'handle_return'])->name('handle_return');
 
