@@ -13,7 +13,7 @@ imageInput.addEventListener("change", (e) => {
 
     // create image element
     const imageElem = document.createElement("img");
-    imageElem.classList.add(["object-center", "w-full"]);
+    imageElem.classList.add("object-center", "w-full", "image");
 
     // create new instance of file reader
     const reader = new FileReader();
@@ -36,9 +36,14 @@ imageInput.addEventListener("change", (e) => {
     removeBtn.classList.remove("hidden");
 });
 
+imageInput.addEventListener("click", (e) => {
+    e.target.value = "";
+});
+
 // remover imagem
 removeBtn.addEventListener("click", () => {
-    display.remove(".imageElem");
+    display.removeChild(display.children[0]);
+    display.classList.add("hidden");
 
     imageInputLabel.classList.remove("pointer-events-none");
     imageInputLabel.classList.add("pointer-events-auto");
