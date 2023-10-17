@@ -75,6 +75,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // return
     Route::get('/return', [CheckoutController::class, 'return'])->name('return');
+    Route::post('/handle_return/{student}', [CheckoutController::class, 'handle_return'])->name('handle_return');
 
     // Log out of admin dashboard
     Route::get("/logout", [AuthController::class, 'logout'])->name('logout');

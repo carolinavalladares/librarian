@@ -84,9 +84,48 @@ class CheckoutController extends Controller
 
 
 
-    public function return ()
+    public function return (Request $request)
     {
         $user = auth()->user();
-        return view('dashboard.return', ['user' => $user]);
+
+        $students = Student::all();
+
+        // only select students that have books 
+        $students = $students->filter(function ($item) {
+            $item = StudentResource::make($item);
+
+            return $item->borrowed_books()->count() > 0;
+        })->values();
+
+
+        if ($request->has('student')) {
+            $studentId = $request->input('student');
+            $student = Student::where('id', $studentId)->first();
+            $books = $student->borrowed_books;
+
+            return view('dashboard.return', ['user' => $user, 'students' => $students, 'selectedStudent' => $student, 'books' => $books]);
+
+        }
+
+
+        return view('dashboard.return', ['user' => $user, 'students' => $students]);
+    }
+
+    public function handle_return(Request $request, Student $student)
+    {
+        $values = $request->validate([
+            'books' => 'required|array'
+        ]);
+
+        $student = StudentResource::make($student);
+
+        $books = collect($values['books']);
+
+        foreach ($books as $book) {
+            $student->borrowed_books()->detach($book);
+        }
+
+
+        return redirect(route('return'))->withSuccess('Devolução realizada com sucesso.');
     }
 }

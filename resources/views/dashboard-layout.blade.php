@@ -24,6 +24,7 @@
     @stack('student_page')
     @stack('librarian_page')
     @stack('checkout_page')
+    @stack('return_page')
     @stack('search_bar')
     
 
