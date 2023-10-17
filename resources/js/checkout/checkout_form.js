@@ -6,7 +6,7 @@ const checkboxContainer = document.querySelector(".input_container");
 // mark checkboxes if they are in local storage array
 setCheckboxes();
 
-// handle checkboxes, save to local storage to persist the ones that are checked even if page reloads when using search
+// handle checkboxes, save to local storage to persist the ones that are checked even if page reloads when using search or pagination
 bookCheckboxes.forEach((checkbox) => {
     checkbox.addEventListener("change", (e) => {
         let checkedItems = getCheckedItems();

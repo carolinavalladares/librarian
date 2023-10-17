@@ -24,10 +24,8 @@ return new class extends Migration {
             $table->integer('pages');
             $table->float('rating');
             $table->date('published_date');
-            $table->foreignIdFor(Student::class)->nullable();
             $table->foreignIdFor(Author::class);
             $table->foreignIdFor(Publisher::class);
-            $table->foreignIdFor(Genre::class)->nullable();
             $table->timestamps();
         });
     }

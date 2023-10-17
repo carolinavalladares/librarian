@@ -83,7 +83,7 @@
                  </fieldset>
              </div>
 
-            <div class="flex flex-col flex-1 mb-2">
+            <div class="ml-2 flex flex-col flex-1 mb-2">
                 {{-- student select --}}
                 <label class="text-sm font-medium" for="student_id">Estudante:</label>
                 <select class="student_select cursor-pointer border h-9 px-2" name="student_id" id="student_id" title="Escolher estudante">

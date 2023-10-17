@@ -46,7 +46,7 @@ class BookController extends Controller
             'published_date' => $request['published_date'],
             'author_id' => $request['author_id'],
             'publisher_id' => $request['publisher_id'],
-            'genre_id' => $request['genre_id'],
+            'genres' => $request['genres'],
         ];
 
         $rules = [
@@ -60,7 +60,7 @@ class BookController extends Controller
             'published_date' => 'required|date',
             'author_id' => 'required|integer',
             'publisher_id' => 'required|integer',
-            'genre_id' => 'required|integer',
+            'genres' => 'required|array',
         ];
 
 
@@ -91,7 +91,16 @@ class BookController extends Controller
             $book->image = "";
         }
 
+        // save book
         $book->save();
+
+        // attach genres
+        foreach ($data['genres'] as $genre) {
+            $genre = Genre::where("id", 'like', $genre)->first();
+            $book = BookResource::make($book);
+
+            $book->genres()->attach($genre->id);
+        }
 
 
         return redirect(route('books'))->withSuccess("Cadastro realizado com sucesso.");

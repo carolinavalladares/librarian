@@ -49,13 +49,13 @@ removeBtn.addEventListener("click", () => {
 // toggle form
 showFormToggle.addEventListener("click", () => {
     if (formOpen) {
-        formContainer.classList.remove("max-h-[750px]");
+        formContainer.classList.remove("max-h-[3000px]");
         formContainer.classList.add("max-h-0");
 
         formOpen = false;
     } else {
         formContainer.classList.remove("max-h-0");
-        formContainer.classList.add("max-h-[750px]");
+        formContainer.classList.add("max-h-[3000px]");
 
         formOpen = true;
     }

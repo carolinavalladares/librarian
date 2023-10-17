@@ -13,7 +13,7 @@ class CheckoutController extends Controller
     public function checkout(Request $request)
     {
         $user = auth()->user();
-        $bookAmount = 5;
+        $bookAmount = 15;
 
         // get all approved users 
         $students = Student::where('approved', 'like', true)->get();

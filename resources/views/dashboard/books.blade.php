@@ -109,45 +109,72 @@
                 </div>
             </div>
 
-            <div class="text-sm flex flex-col items-center gap-1 mb-2  lg:flex-row">
-                <div class="flex flex-col w-full lg:flex-1">
-                    {{-- author select --}}
-                    <label class="font-medium text-xs" for="author_id">Autor do livro:</label>
-                    <select class="cursor-pointer border h-9 px-2" name="author_id" id="author_id" title="Escolher autor">
-                        <option class="opacity-30" disabled selected value={{null}}>Escolher autor</option>
-                        @foreach ($authors as $author )
-                            <option value={{$author->id}}>{{$author->name}}</option>
-                        @endforeach
-                    </select>
+            <div >
+                <div class="text-sm flex flex-col items-center gap-1 mb-2  lg:flex-row">
+                    <div class="flex flex-col w-full lg:flex-1">
+                        {{-- author select --}}
+                        <label class="font-medium text-xs" for="author_id">Autor do livro:</label>
+                        <select class="cursor-pointer border h-9 px-2" name="author_id" id="author_id" title="Escolher autor">
+                            <option class="opacity-30" disabled selected value={{null}}>Escolher autor</option>
+                            @foreach ($authors as $author )
+                                <option value={{$author->id}}>{{$author->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="flex flex-col w-full lg:flex-1">
+                        {{-- publisher select --}}
+                        <label class="font-medium text-xs" for="publisher_id">Editora do livro:</label>
+                        <select class="cursor-pointer border h-9 px-2" name="publisher_id" id="publisher_id" title="Escolher editora">
+                            <option class="opacity-30" disabled selected value={{null}}>Escolher editora</option>
+                            @foreach ($publishers as $publisher )
+                                <option value={{$publisher->id}}>{{$publisher->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
-                <div class="flex flex-col w-full lg:flex-1">
-                    {{-- publisher select --}}
-                    <label class="font-medium text-xs" for="publisher_id">Editora do livro:</label>
-                    <select class="cursor-pointer border h-9 px-2" name="publisher_id" id="publisher_id" title="Escolher editora">
-                        <option class="opacity-30" disabled selected value={{null}}>Escolher editora</option>
-                        @foreach ($publishers as $publisher )
-                            <option value={{$publisher->id}}>{{$publisher->name}}</option>
-                        @endforeach
-                    </select>
-                </div>
+               
 
-                {{-- TODO: change genre selection to make it possible to select more than one --}}
+               
                 <div class="flex flex-col w-full lg:flex-1">
                     {{-- genre select --}}
-                    <label  class="font-medium text-xs" for="genre_id">Categoria do livro:</label>
-                    <select class="cursor-pointer border h-9 px-2" name="genre_id" id="genre_id" title="Escolher categoria">
-                        <option class="opacity-30" disabled selected value={{null}}>Escolher categoria</option>
-                        @foreach ($genres as $genre )
-                            <option value={{$genre->id}}>{{$genre->name}}</option>
-                        @endforeach
-                    </select>
+                    <fieldset> 
+                        <div class="flex items-center justify-between border-b my-2">
+                            <legend class="text-xs font-medium">Categorias do livro:</legend>             
+                            
+                        </div>     
+                        <div class="max-h-72 w-full overflow-y-auto">
+                         @if($genres->count()> 0)
+                            
+                             @foreach ($genres as $genre)
+                                
+                                 <div class="input_container flex items-center justify-start gap-1 mb-1 mr-1">
+                                     
+                                     <label class="checkbox-label text-xs  font-medium flex gap-2 items-center border px-2 cursor-pointer h-9 w-full rounded-sm" for="{{$genre->id}}">
+                                         {{-- hidden checkbox --}}
+                                         <input class="hidden  book_checkbox" type="checkbox" value="{{$genre->id}}" name="genres[]" id="{{$genre->id}}">
+     
+                                         {{-- fake checkbox --}}
+                                      <div class="fake-checkbox h-4 w-4 flex items-center justify-center text-white border rounded-sm">
+                                         <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>
+                                      </div>
+     
+                                      {{-- book title --}}
+                                     {{$genre->name}}                            
+                                 </label>
+                                 </div>                                    
+                                
+                             @endforeach
+                            
+                         @endif
+                        </div>
+                      </fieldset>
                 </div>
                 
             </div>
           
 
             {{-- submit btn --}}
-            <input title="cadastrar" class="h-9 flex items-center justify-center px-2 bg-orange-500 text-white font-medium cursor-pointer mr-0 ml-auto"  type="submit" value="Cadastrar">
+            <input title="cadastrar" class="h-9 flex items-center justify-center px-2 bg-orange-500 text-white font-medium cursor-pointer mr-0 ml-auto mt-2"  type="submit" value="Cadastrar">
         </div>
     </form>
     
