@@ -26,6 +26,7 @@
     @stack('checkout_page')
     @stack('return_page')
     @stack('search_bar')
+    @stack('charts')
     
 
 </head>

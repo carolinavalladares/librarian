@@ -6,7 +6,7 @@
     {{-- approved status flag --}}
    <div class="text-xs font-medium flex items-center justify-end gap-1">   
     @if ($student->approved)
-    <span class="text-emerald-600">Aprovado</span>
+    <span class="text-emerald-600">Autorizado</span>
     <span class="block rounded-full h-3 w-3 bg-emerald-600"></span>
     @elseif (is_null($student->approved) )
     <div class="">
@@ -15,13 +15,13 @@
             <span class="block rounded-full h-3 w-3 bg-amber-500"></span>
         </div>        
         <div class="flex items-center justify-end gap-2">
-            <a title="aprovar estudante" class="rounded-sm inline-block px-1 leading-snug text-white font-medium bg-emerald-600" href="{{route('approve_student',['student'=>$student->id])}}">Aprovar</a>
+            <a title="aprovar estudante" class="rounded-sm inline-block px-1 leading-snug text-white font-medium bg-emerald-600" href="{{route('approve_student',['student'=>$student->id])}}">Autorizar</a>
             <a title="negar estudante" class="rounded-sm inline-block px-1 leading-snug text-white font-medium bg-rose-500" href="{{route('deny_student',['student'=>$student->id])}}">Negar</a>
         </div>
     </div>
    
     @else
-    <span class="text-rose-500">Negado</span>
+    <span class="text-rose-500">Não Autorizado</span>
     <span class="block rounded-full h-3 w-3 bg-rose-500"></span>
     @endif
    

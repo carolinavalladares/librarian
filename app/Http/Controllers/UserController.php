@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Models\User;
 use App\Models\Genre;
 use App\Models\Author;
+use App\Models\Student;
 use App\Models\Publisher;
 use Illuminate\Http\Request;
 use App\Http\Resources\BookResource;
@@ -42,6 +43,7 @@ class UserController extends Controller
         $authors = Author::all()->count();
         $publishers = Publisher::all()->count();
         $genres = Genre::all()->count();
+        $students = Student::all();
 
         $bookAmount = 0;
 
@@ -50,7 +52,7 @@ class UserController extends Controller
         }
 
 
-        return view('dashboard.index', ['user' => $user, 'authors' => $authors, 'publishers' => $publishers, 'genres' => $genres, 'librarians' => $librarians, 'books' => $bookAmount]);
+        return view('dashboard.index', ['user' => $user, 'students' => $students, 'authors' => $authors, 'publishers' => $publishers, 'genres' => $genres, 'librarians' => $librarians, 'books' => $bookAmount]);
     }
 
 
