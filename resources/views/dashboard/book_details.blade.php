@@ -37,11 +37,11 @@
         <h2 class="font-semibold text-lg mb-2 ml-2">Detalhes do livro</h2>
         <div class="flex flex-col sm:flex-row gap-4">
 
-            <div class="max-w-[250px] m-auto sm:max-w-none sm:min-w-[250px] overflow-hidden rounded-md sm:flex-1">
-                <img class="w-full block" src="{{asset("/assets/images/books/" . $book->image)}}" alt="book-image">
+            <div class="max-w-[250px] m-auto sm:max-w-none sm:min-w-[250px] overflow-hidden rounded-md ">
+                <img class="w-full block sm:w-[250px]" src="{{asset("/assets/images/books/" . $book->image)}}" alt="book-image">
             </div>
 
-            <div>
+            <div class="flex-1">
                
                 <div class="mb-1">
                     <span class="text-sm font-medium">Data de Publicação:</span>
