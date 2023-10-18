@@ -1,7 +1,5 @@
 @props(['book'=>$book ])
-
-{{-- TODO: add book details page when user clicks on card, add possibilities to edit book --}}
-
+<a href="{{route('book_details', ['book'=>$book])}}">
 <div class="flex flex-col item-start justify-start gap-2 mb-3 shadow-md bg-white ">
     <div class="relative  overflow-hidden min-w-[80px] w-full h-36 flex items-center justify-center">
         <img class="w-full block " src="{{asset('/assets/images/books/' . $book->image)}}" alt="capa do livro {{$book->title}}">
@@ -44,3 +42,4 @@
     </div>
     
 </div>
+</a>

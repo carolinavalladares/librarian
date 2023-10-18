@@ -105,4 +105,9 @@ class BookController extends Controller
 
         return redirect(route('books'))->withSuccess("Cadastro realizado com sucesso.");
     }
+
+    public function show(Book $book)
+    {
+        return view("dashboard.book_details", ['book' => $book]);
+    }
 }
