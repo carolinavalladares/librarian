@@ -40,9 +40,3 @@ const studentChart = new Chart("studentChart", {
     data: data,
 });
 
-// window.addEventListener("resize", () => {
-//     new Chart("myChart", {
-//         type: "doughnut",
-//         data: data,
-//     });
-// });
