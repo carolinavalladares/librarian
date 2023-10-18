@@ -70,7 +70,7 @@
                 {{-- description --}}
                 <div >
                     <label class="font-medium text-xs" class="text-sm leading-none" for='description' >Descrição do livro:</label>
-                    <textarea placeholder="Digite a descrição do livro..." class="border py-2 px-4 text-sm w-full min-h-[50px]" type="text" name="description" id="description" ></textarea>
+                    <textarea placeholder="Digite a descrição do livro..." class="border py-2 px-4 text-sm w-full min-h-[50px]" type="text" name="description" spellcheck=false id="description" ></textarea>
                 </div>
             </div>
         </div>

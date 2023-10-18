@@ -33,7 +33,7 @@
             <div class="flex flex-wrap gap-1 ">
                 
                 @foreach ($book->genres as $genre )
-                    <span class="text-xs px-1 bg-orange-200">{{$genre->name}}</span>
+                    <span class="text-xs font-medium px-1 bg-orange-200">{{$genre->name}}</span>
                 @endforeach
             </div>
         </div>

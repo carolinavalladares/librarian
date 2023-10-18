@@ -108,6 +108,36 @@ class BookController extends Controller
 
     public function show(Book $book)
     {
-        return view("dashboard.book_details", ['book' => $book]);
+        $authors = Author::all();
+        $genres = Genre::all();
+        $publishers = Publisher::all();
+        return view("dashboard.book_details", ['book' => $book, 'authors' => $authors, 'genres' => $genres, 'publishers' => $publishers]);
+    }
+
+    public function edit(Request $request, Book $book)
+    {
+        $values = $request->validate([
+            'title' => 'required|string',
+            'description' => 'required|string',
+            'ISBN' => 'required|min:10|max:13',
+            'pages' => 'required|integer',
+            'rating' => 'required|numeric|max:5|min:0',
+            'quantity' => 'required|integer',
+            'published_date' => 'required|date',
+            'author_id' => 'required|integer',
+            'publisher_id' => 'required|integer',
+            'genres' => 'required|array',
+        ]);
+
+        $book->update($values);
+
+        $genres = $values['genres'];
+
+
+        $book->genres()->sync($genres);
+
+
+        return redirect()->back()->withSuccess('Informações atualizadas com sucesso.');
+
     }
 }

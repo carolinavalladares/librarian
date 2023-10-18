@@ -60,6 +60,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get("/dashboard/books", [BookController::class, 'index'])->name('books');
     Route::post("/books/create", [BookController::class, 'create'])->name('book_create');
     Route::get("/books/{book}", [BookController::class, 'show'])->name('book_details');
+    Route::post("/books/edit/{book}", [BookController::class, 'edit'])->name('edit_book');
 
     // students
     Route::get("/dashboard/students", [StudentController::class, 'index'])->name('students');
