@@ -180,7 +180,7 @@
     
     {{-- book list --}}
     <div class="mt-2">
-        <div class="grid grid-cols-2 grid-rows-2 sm:flex sm:items-end sm:justify-between gap-2">
+        <div class="grid  grid-cols-2 grid-rows-2 sm:flex sm:items-end sm:justify-between gap-2">
             <h2 class="font-semibold row-start-2 row-span-1 flex items-end justify-start">Livros</h2>
 
 
@@ -202,7 +202,7 @@
         <div class="mt-2 ">
             @if($books->total() > 0)
             <div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                <div class="grid auto-rows-max grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
                     @foreach ($books as $book)
                     {{-- display each book --}}
                         <x-book-item :book="$book" />
