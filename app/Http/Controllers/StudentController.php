@@ -21,7 +21,7 @@ class StudentController extends Controller
 
             $students = Student::where('name', 'like', '%' . $search . '%')->paginate($amount);
 
-            return view('dashboard.students', ['students' => $students, 'user' => $user]);
+            return view('dashboard.students', ['students' => StudentResource::collection($students), 'user' => $user]);
         }
 
         // handle filter
