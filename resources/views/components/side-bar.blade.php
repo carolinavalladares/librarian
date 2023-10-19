@@ -39,6 +39,9 @@
              <li >
                  <a name="return" title="devolução" class="nav_link w-full h-10 flex items-center px-4 font-medium border-b" href="{{route('return')}}">Devolução</a>
              </li>
+             <li >
+                 <a name="account" title="conta" class="nav_link w-full h-10 flex items-center px-4 font-medium border-b" href="{{route('account')}}">Conta</a>
+             </li>
              {{-- logout btn --}}
              <li >
                  <a title="Sair" class="w-full h-7 flex items-center px-4 font-medium text-rose-500" href="{{route('logout')}}">Sair</a>

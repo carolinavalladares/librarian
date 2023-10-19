@@ -52,4 +52,13 @@ class AuthController extends Controller
 
         return redirect(route('home'));
     }
+
+
+    public function account()
+    {
+
+        $user = auth()->user();
+
+        return view('dashboard.account', ['user' => $user]);
+    }
 }

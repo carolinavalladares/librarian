@@ -55,7 +55,7 @@ class DatabaseSeeder extends Seeder
             'quantity' => fake()->numberBetween(1, 21),
             'rating' => fake()->randomFloat(1, 1, 5),
             'pages' => fake()->numberBetween(50, 500),
-            'published_date' => fake()->date('d-m-Y'),
+            'published_year' => fake()->year(),
             'author_id' => 1,
 
             'publisher_id' => 1
@@ -71,7 +71,7 @@ class DatabaseSeeder extends Seeder
             'quantity' => fake()->numberBetween(1, 21),
             'rating' => fake()->randomFloat(1, 1, 5),
             'pages' => fake()->numberBetween(50, 500),
-            'published_date' => fake()->date('d-m-Y'),
+            'published_year' => fake()->year(),
             'author_id' => 1,
 
             'publisher_id' => 1
@@ -88,7 +88,7 @@ class DatabaseSeeder extends Seeder
             'quantity' => fake()->numberBetween(1, 21),
             'rating' => fake()->randomFloat(1, 1, 5),
             'pages' => fake()->numberBetween(50, 500),
-            'published_date' => fake()->date('d-m-Y'),
+            'published_year' => fake()->year(),
             'author_id' => 2,
 
             'publisher_id' => 3
@@ -106,7 +106,7 @@ class DatabaseSeeder extends Seeder
             'quantity' => fake()->numberBetween(1, 21),
             'rating' => fake()->randomFloat(1, 1, 5),
             'pages' => fake()->numberBetween(50, 500),
-            'published_date' => fake()->date('d-m-Y'),
+            'published_year' => fake()->year(),
             'author_id' => 3,
 
             'publisher_id' => 2
@@ -124,7 +124,7 @@ class DatabaseSeeder extends Seeder
             'quantity' => fake()->numberBetween(1, 21),
             'rating' => fake()->randomFloat(1, 1, 5),
             'pages' => fake()->numberBetween(50, 500),
-            'published_date' => fake()->date('d-m-Y'),
+            'published_year' => fake()->year(),
             'author_id' => 3,
 
             'publisher_id' => 2
@@ -141,7 +141,7 @@ class DatabaseSeeder extends Seeder
             'quantity' => fake()->numberBetween(1, 21),
             'rating' => fake()->randomFloat(1, 1, 5),
             'pages' => fake()->numberBetween(50, 500),
-            'published_date' => fake()->date('d-m-Y'),
+            'published_year' => fake()->year(),
             'author_id' => 4,
 
             'publisher_id' => 4
@@ -157,7 +157,7 @@ class DatabaseSeeder extends Seeder
             'quantity' => fake()->numberBetween(1, 21),
             'rating' => fake()->randomFloat(1, 1, 5),
             'pages' => fake()->numberBetween(50, 500),
-            'published_date' => fake()->date('d-m-Y'),
+            'published_year' => fake()->year(),
             'author_id' => 4,
 
             'publisher_id' => 4

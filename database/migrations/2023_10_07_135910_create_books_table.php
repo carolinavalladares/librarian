@@ -23,7 +23,7 @@ return new class extends Migration {
             $table->integer('quantity');
             $table->integer('pages');
             $table->float('rating');
-            $table->date('published_date');
+            $table->year('published_year');
             $table->foreignIdFor(Author::class);
             $table->foreignIdFor(Publisher::class);
             $table->timestamps();

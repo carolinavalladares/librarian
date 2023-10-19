@@ -70,6 +70,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // librarians
     Route::get('/librarians', [UserController::class, 'index'])->name('librarians');
     Route::post('/librarians/handle_register', [AuthController::class, 'handle_register'])->name('handle_librarian_register');
+    Route::get('/librarians/account', [AuthController::class, 'account'])->name('account');
 
     // checkout
     Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');

@@ -83,10 +83,10 @@
                     <label class="font-medium text-xs" class="text-sm leading-none mb-1" for='ISBN' >ISBN:</label>
                     <input placeholder="Digite código ISBN..." class="border h-9 px-4 text-sm w-full" type="number" name="ISBN" id="ISBN" >
                 </div>
-                {{-- published date --}}
+                {{-- published year --}}
                 <div class="flex flex-col w-full lg:flex-1">
-                    <label class="font-medium text-xs" class="text-sm leading-none mb-1" for="published_date">Data de publicação</label>
-                    <input class="h-9 px-4 border" type="date" name="published_date" id="published_date">
+                    <label class="font-medium text-xs" class="text-sm leading-none mb-1" for="published_year">Ano de publicação</label>
+                    <input class="h-9 px-4 border" type="number" name="published_year" id="published_year" placeholder="Digite o ano de publicação" >
                 </div>
             </div>
             
