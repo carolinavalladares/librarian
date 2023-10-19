@@ -20,14 +20,14 @@ navLinks.forEach((link) => {
 // mobile nav hamburger
 hambuergerBtn.addEventListener("click", () => {
     if (navOpen) {
-        navList.classList.remove("max-h-96");
+        navList.classList.remove("max-h-[2000px]");
         navList.classList.add("max-h-0");
         hamburgerContainer.classList.remove("open");
 
         navOpen = false;
     } else {
         navList.classList.remove("max-h-0");
-        navList.classList.add("max-h-96");
+        navList.classList.add("max-h-[2000px]");
         hamburgerContainer.classList.add("open");
         navOpen = true;
     }
