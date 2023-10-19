@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -60,5 +61,23 @@ class AuthController extends Controller
         $user = auth()->user();
 
         return view('dashboard.account', ['user' => $user]);
+    }
+
+    public function change_password(User $user, Request $request)
+    {
+
+        $values = $request->validate([
+            'current_password' => 'required | current_password ',
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required'
+        ]);
+
+
+
+
+        $user->update(['password' => $values['password']]);
+        return redirect()->back()->withSuccess('Senha alterada com sucesso.');
+
+
     }
 }

@@ -70,7 +70,6 @@ Route::middleware('auth:sanctum')->group(function () {
     // librarians
     Route::get('/librarians', [UserController::class, 'index'])->name('librarians');
     Route::post('/librarians/handle_register', [AuthController::class, 'handle_register'])->name('handle_librarian_register');
-    Route::get('/librarians/account', [AuthController::class, 'account'])->name('account');
 
     // checkout
     Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
@@ -79,6 +78,10 @@ Route::middleware('auth:sanctum')->group(function () {
     // return books
     Route::get('/return', [CheckoutController::class, 'return'])->name('return');
     Route::post('/handle_return/{student}', [CheckoutController::class, 'handle_return'])->name('handle_return');
+
+    // account
+    Route::get('/librarians/account', [AuthController::class, 'account'])->name('account');
+    Route::post("/librarians/account/change_password/{user}", [AuthController::class, 'change_password'])->name('change_password');
 
     // Log out of admin dashboard
     Route::get("/logout", [AuthController::class, 'logout'])->name('logout');
