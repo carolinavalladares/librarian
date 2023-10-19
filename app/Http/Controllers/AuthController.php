@@ -25,7 +25,7 @@ class AuthController extends Controller
         if (auth()->attempt($credentials)) {
             return redirect(route('dashboard'));
         } else {
-            return redirect()->back()->with('fail_message', 'Falha ao logar... Tente novamente.');
+            return redirect()->back()->withErrors(['fail_message' => 'Falha ao logar... Tente novamente.'])->withInput();
         }
 
     }
@@ -71,9 +71,6 @@ class AuthController extends Controller
             'password' => 'required|confirmed',
             'password_confirmation' => 'required'
         ]);
-
-
-
 
         $user->update(['password' => $values['password']]);
         return redirect()->back()->withSuccess('Senha alterada com sucesso.');

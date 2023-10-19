@@ -27,16 +27,16 @@
             @method('post')
             <h2 class="font-semibold">Alterar senha</h2>
 
-            <div class="flex flex-col">
-                <label class="text-sm font-medium " for="current_password">Senha atual:</label>
+            <div class="flex flex-col mb-1">
+                <label class="text-xs font-medium " for="current_password">Senha atual:</label>
                 <input placeholder="Digite sua senha atual..." class="border h-9 text-sm px-4" name="current_password" id="current_password" type="password" >
             </div>
-            <div class=" flex flex-col">
-                <label class="text-sm font-medium" for="password">Senha nova:</label>
+            <div class=" flex flex-col mb-1">
+                <label class="text-xs font-medium" for="password">Senha nova:</label>
                 <input placeholder="Digite a nova senha..." class="border h-9 text-sm px-4" name="password" id="password" type="password" >
             </div>
-            <div class=" flex flex-col">
-                <label class="text-sm font-medium" for="password_confirmation">Confirmar senha atual:</label>
+            <div class=" flex flex-col mb-1">
+                <label class="text-xs font-medium" for="password_confirmation">Confirmar senha atual:</label>
                 <input placeholder="Digite a nova senha novamente..." class="border h-9 text-sm px-4" name="password_confirmation" id="password_confirmation" type="password" >
             </div>
              {{-- submit btn --}}

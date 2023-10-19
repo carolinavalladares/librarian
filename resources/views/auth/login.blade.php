@@ -6,20 +6,20 @@
         <h1 class="text-xl font-semibold text-center mb-7">Login Bibliotecário(a)</h1>
 
         {{-- validation messages --}}
-    <div>
-        @if (session('success'))
-            <x-message :type="'success'" :message="session('success')" />
-        @endif
+        <div class="max-w-xl m-auto w-full ">
+            @if (session('success'))
+                <x-message :type="'success'" :message="session('success')" />
+            @endif
 
-        @if ($errors->any())
+            @if ($errors->any())
 
-        <ul class="flex flex-col gap-1 mb-2">
-            @foreach ($errors->all() as $error )
-                <x-message :type="'error'" :message="$error" />
-            @endforeach
-        </ul>
-        @endif
-    </div>
+            <ul class="flex flex-col gap-1 mb-2">
+                @foreach ($errors->all() as $error )
+                    <x-message :type="'error'" :message="$error" />
+                @endforeach
+            </ul>
+            @endif
+        </div>
 
         <form class="bg-white max-w-xl m-auto w-full p-4 shadow-md" action="{{route('handle_login')}}" method="POST">
             @csrf
