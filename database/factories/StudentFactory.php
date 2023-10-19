@@ -16,8 +16,11 @@ class StudentFactory extends Factory
      */
     public function definition(): array
     {
+        $firstName = fake()->firstName();
+        $lastName = fake()->lastName();
+        $name = $firstName . " " . $lastName;
         return [
-            'name' => fake()->name(),
+            'name' => $name,
             'email' => fake()->unique()->safeEmail(),
             'approved' => fake()->randomElement([0, 1, NULL]),
             'registration' => fake()->unique()->numerify('############')
