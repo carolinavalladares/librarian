@@ -20,8 +20,6 @@ class DatabaseSeeder extends Seeder
     {
         // CREATE FAKE DATA FOR DEVELOPMENT AND TESTING PURPOSES
 
-        // create other librarians
-        User::factory(5)->create();
         // create admin
         User::create(['name' => 'admin', 'email' => 'admin@email.com', 'password' => bcrypt('password')]);
 
