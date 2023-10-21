@@ -12,6 +12,23 @@
 
     <section>
         <h1 class="text-lg font-semibold ">Estudantes cadastrados</h1>
+
+        {{-- validation messages --}}
+    <div>
+        @if (session('success'))
+            <x-message :type="'success'" :message="session('success')" />
+        @endif
+
+        @if ($errors->any())
+
+        <ul class="flex flex-col gap-1 mb-2">
+            @foreach ($errors->all() as $error )
+                <x-message :type="'error'" :message="$error" />
+            @endforeach
+        </ul>
+        @endif
+    </div>
+
         <div class="flex flex-col items-end justify-end gap-2">
             <div class="w-full"> 
                 {{-- filtrar --}}
