@@ -1,10 +1,11 @@
 @props(['student'=>$student])
 
 
-<div class="shadow-md bg-white p-4 mb-2 flex flex-col sm:flex-row-reverse sm:justify-between sm:items-start">
-    {{-- approved status flag --}}
-   <x-status-flag :student="$student" :show-options="true" />
+<div class="shadow-md bg-white p-4 mb-2 flex flex-col sm:block sm:justify-between sm:items-start">
 
+     {{-- approved status flag --}}
+   <x-status-flag :student="$student" :show-options="true" />
+    
    {{-- student information --}}
     <div>
         <p class="font-medium mb-1">{{$student->name}}</p>
@@ -28,14 +29,15 @@
                 @endif                
             </div>                     
         </div>
-    </div>  
 
-    <div class="flex items-center justify-end mt-1">
-        <a href="{{route('student_page', ['student'=>$student->id])}}" title="ver mais" class="text-xs  text-orange-500 font-medium flex items-center">
-            Ver mais
-            <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down -rotate-90"><path d="m6 9 6 6 6-6"/></svg>
-            
-        </a>
-    </div>
+        <div class="flex items-center justify-end mt-1">
+            <a href="{{route('student_page', ['student'=>$student->id])}}" title="ver mais" class="text-xs  text-orange-500 font-medium flex items-center">
+                Ver mais
+                <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down -rotate-90"><path d="m6 9 6 6 6-6"/></svg>
+                
+            </a>
+        </div>
+
+    </div>  
    
 </div>
