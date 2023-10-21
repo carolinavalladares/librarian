@@ -59,16 +59,33 @@ class StudentController extends Controller
 
     public function approve(Student $student)
     {
+        $student = StudentResource::make($student);
+
+        if ($student->borrowed_books->count() > 0) {
+            return redirect()->back()->withErrors(["has_borrowed_books" => 'O status só pode ser mudado se o estudante não estiver com livros emprestados']);
+        }
 
         $student->update(['approved' => true]);
 
-        return redirect()->back()->withSuccess("Registro aprovado.");
+        return redirect()->back()->withSuccess("Registro atualizado com sucesso.");
     }
     public function deny(Student $student)
     {
 
+        $student = StudentResource::make($student);
+
+        if ($student->borrowed_books->count() > 0) {
+            return redirect()->back()->withErrors(["has_borrowed_books" => 'O status só pode ser mudado se o estudante não estiver com livros emprestados']);
+        }
+
         $student->update(['approved' => false]);
 
-        return redirect()->back()->withSuccess("Registro Negado.");
+        return redirect()->back()->withSuccess("Registro atualizado com sucesso.");
+    }
+
+    public function show(Student $student)
+    {
+        $student = StudentResource::make($student);
+        return view("dashboard.student_page", ["student" => $student]);
     }
 }

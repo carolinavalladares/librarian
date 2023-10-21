@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Librarian | {{$book->title}}</title>
 
-     {{-- tab icon --}}
+     {{-- icon --}}
      <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
      {{-- Load tailwindcss --}}
@@ -22,7 +22,7 @@
 <body class="bg-gray-100 font-montserrat  p-4 w-full max-w-7xl m-auto">
 
     <header>
-        <a class="flex items-center text-sm hover:text-orange-500 transition-all duration-200" title="voltar" href="/dashboard/books">
+        <a class="flex items-center text-sm hover:text-orange-500 transition-all duration-200" title="voltar" href="{{ route('books') }}">
             <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down rotate-90"><path d="m6 9 6 6 6-6"/></svg>
             Voltar
         </a>
