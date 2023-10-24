@@ -40,7 +40,7 @@
                 <input placeholder="Digite a nova senha novamente..." class="border h-9 text-sm px-4" name="password_confirmation" id="password_confirmation" type="password" >
             </div>
              {{-- submit btn --}}
-             <input title="Mudar" class="h-9 flex items-center justify-center px-2 bg-orange-500 text-white font-medium cursor-pointer mr-0 ml-auto mt-2"  type="submit" value="Mudar">
+             <input title="Mudar" class="text-sm h-9 flex items-center justify-center px-2 bg-orange-500 text-white font-medium cursor-pointer mr-0 ml-auto mt-2"  type="submit" value="Mudar">
         </form>
     </div>
    </section>
