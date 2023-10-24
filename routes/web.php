@@ -67,6 +67,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get("/students/approve/{student}", [StudentController::class, 'approve'])->name('approve_student');
     Route::get("/students/deny/{student}", [StudentController::class, 'deny'])->name('deny_student');
     Route::get("/students/{student}", [StudentController::class, 'show'])->name('student_page');
+    Route::post("/students/edit/{student}", [StudentController::class, 'handle_student_edit'])->name('handle_student_edit');
 
     // librarians
     Route::get('/librarians', [UserController::class, 'index'])->name('librarians');

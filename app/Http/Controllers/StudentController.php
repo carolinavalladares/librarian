@@ -88,4 +88,21 @@ class StudentController extends Controller
         $student = StudentResource::make($student);
         return view("dashboard.student_page", ["student" => $student]);
     }
+
+    public function handle_student_edit(Request $request, Student $student)
+    {
+
+        $values = $request->validate([
+            "name" => "required",
+            'email' => 'required|email',
+            'registration' => 'required|numeric'
+        ]);
+
+
+        $student->update($values);
+
+
+        return redirect()->back()->withSuccess('Informações atualizadas com sucesso.');
+
+    }
 }

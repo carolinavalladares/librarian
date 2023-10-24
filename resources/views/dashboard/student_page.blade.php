@@ -14,6 +14,10 @@
  
      {{-- Load js --}}
     @vite('resources/js/app.js')
+
+
+    {{-- student form js --}}
+    @vite('resources/js/students/student_edit_form.js')
 </head>
 <body class="bg-gray-100 font-montserrat  p-4 w-full max-w-7xl m-auto">
 
@@ -41,6 +45,41 @@
     </div>
 
     <section>
+
+        {{-- edit student details form  --}}
+        <div class="bg-white shadow-md">
+            <div class="toggle-form p-4 font-semibold flex items-center justify-between cursor-pointer">
+                <span>Editar informações do estudante</span>
+                <button class="btn_arrow transition-all duration-500 text-gray-400 w-fit max-w-fit origin-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+            </div>
+
+
+            <div class="form_container max-h-0 overflow-hidden transition-all duration-500"  >
+              
+                {{-- form --}}
+             <form action="{{ route('handle_student_edit', ['student'=>$student]) }}" method="POST" class=" m-auto bg-white p-4 text-sm" >
+                @csrf
+                @method('post')
+                <div class="flex flex-col mb-4">
+                    <label class="mb-1" for="name">Nome:</label>
+                    <input class="border h-9 px-4" type="text" name="name" id="name" value="{{$student->name}}" placeholder="Digite seu nome...">
+                </div>
+                <div class="flex flex-col mb-4">
+                    <label class="mb-1" for="email">E-mail:</label>
+                    <input class="border h-9 px-4" type="email" name="email" id="email" value="{{$student->email}}" placeholder="Digite seu e-mail...">
+                </div>
+                <div class="flex flex-col mb-4">
+                    <label class="mb-1" for="registration">Matrícula:</label>
+                    <input class="border h-9 px-4" type="number" name="registration" value="{{$student->registration}}" id="registration" placeholder="Digite sua matrícula...">
+                </div>
+            
+                <input title="editar" class="h-9 flex items-center justify-center px-2 bg-orange-500 text-white font-medium cursor-pointer mr-0 ml-auto mt-2"  type="submit" value="Editar">
+        </form>
+            </div>
+        </div>
+
         <div class="p-4 bg-white shadow-md mt-4">
             {{-- student status --}}
             <x-status-flag :student="$student" :show-options="false" />
