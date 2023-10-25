@@ -1,8 +1,10 @@
  <div align="center">
     <img src="public/assets/docs/logo.png" width="200" />
-    <h2>Sobre o projeto</h2>
+    
     
 </div>
+
+## Sobre o projeto
 
 O Librarian é um sistema de gerenciamento de biblioteca onde usuários podem visualizar, cadastrar e editar livros, autores, editoras e categorias. Além de poder gerenciar os estudantes cadastrados na plataforma.
 
