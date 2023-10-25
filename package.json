@@ -4,8 +4,9 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
+        "seed_data" : "php artisan db:seed",
         "start": "concurrently \"npm run dev\" \" php artisan serve \" ",
-        "seed_data" : "php artisan db:seed"
+        "setup": "npm install && composer install && cp .env.example .env && php artisan key:generate && php artisan migrate && npm run seed_data"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.16",
