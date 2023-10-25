@@ -21,6 +21,12 @@ Este projeto foi desenvolvido para a matéria de Desenvolvimento Web do curso de
 2. Rode o comando:
 
 ```sh
+    npm install
+```
+
+3. Rode o comando:
+
+```sh
     npm run setup
 ```
 
