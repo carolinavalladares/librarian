@@ -1,6 +1,6 @@
  <div align="center">
     <img src="public/assets/docs/logo.png" width="200" />
-    <h2 align="center">Librarian</h2>
+    <h2>Sobre o projeto</h2>
     
 </div>
 
