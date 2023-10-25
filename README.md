@@ -6,7 +6,7 @@
 
 ## Sobre o projeto
 
-O Librarian é um sistema de gerenciamento de biblioteca onde usuários podem visualizar, cadastrar e editar livros, autores, editoras e categorias. Além de poder gerenciar os estudantes cadastrados na plataforma.
+O Librarian é um sistema de gerenciamento de biblioteca onde usuários podem visualizar, cadastrar e editar livros, autores, editoras e categorias. Além de poder gerenciar as retiradas e devoluções de livros da biblioteca por estudantes cadastrados na plataforma.
 
 Este projeto foi desenvolvido para a matéria de Desenvolvimento Web do curso de Análise e Desenvolvimento de Sistemas.
 
