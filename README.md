@@ -42,11 +42,11 @@ Depois de seguir esses passos o projeto está configurado. Para executar o proje
 O projeto estará rodando em **localhost:8000**.
 
 O aplicativo já vem com alguns dados inseridos na base de dados através do seeder. O seeder também cria um usuário padrão que pode ser usado para fazer o primeiro login no app:
-<br/>
-**email**: admin@email.com
-<br/>
-**senha**: password
-<br/>
+
+> **email**: admin@email.com
+
+> **senha**: password
+
 Não se preocupe, a senha pode ser alterada logo no primeiro acesso ao aplicativo na aba **conta** do menu de navegação do dashboard.
 
 ## :hammer_and_wrench: Construído com
