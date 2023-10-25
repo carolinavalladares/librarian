@@ -1,5 +1,5 @@
  <div align="center">
-    <img src="public/assets/docs/logo.png" />
+    <img src="public/assets/docs/logo.png" width="200" />
     <h2 align="center">Librarian</h2>
     
 </div>

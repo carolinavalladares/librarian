@@ -6,7 +6,7 @@
         "build": "vite build",
         "seed_data" : "php artisan db:seed",
         "start": "concurrently \"npm run dev\" \" php artisan serve \" ",
-        "setup": "npm install && composer install && cp .env.example .env && php artisan key:generate && php artisan migrate && npm run seed_data"
+        "setup": "composer install && cp .env.example .env && php artisan key:generate && php artisan migrate && npm run seed_data"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.16",
