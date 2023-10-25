@@ -47,7 +47,7 @@ O aplicativo já vem com alguns dados inseridos na base de dados através do see
 <br/>
 **senha**: password
 <br/>
-Não se preocupe, a senha pode ser alterada logo no primeiro acesso na aba **conta** do menu de navegação do dashboard.
+Não se preocupe, a senha pode ser alterada logo no primeiro acesso ao aplicativo na aba **conta** do menu de navegação do dashboard.
 
 ## :hammer_and_wrench: Construído com
 
