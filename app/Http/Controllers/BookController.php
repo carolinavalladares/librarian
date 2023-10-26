@@ -49,7 +49,7 @@ class BookController extends Controller
             'genres' => $request['genres'],
         ];
 
-        // dd($data);
+
 
         $rules = [
             'title' => 'required|unique:books|string',
