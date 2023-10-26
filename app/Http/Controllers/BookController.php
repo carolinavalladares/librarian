@@ -49,6 +49,8 @@ class BookController extends Controller
             'genres' => $request['genres'],
         ];
 
+        // dd($data);
+
         $rules = [
             'title' => 'required|unique:books|string',
             'image' => 'sometimes|file',
@@ -57,7 +59,7 @@ class BookController extends Controller
             'pages' => 'required|integer',
             'rating' => 'required|numeric|max:5|min:0',
             'quantity' => 'required|integer',
-            'published_year' => 'required|integer|min_digits:4|max_digits:4',
+            'published_year' => 'required',
             'author_id' => 'required|integer',
             'publisher_id' => 'required|integer',
             'genres' => 'required|array',

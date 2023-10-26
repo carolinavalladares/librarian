@@ -21,7 +21,7 @@ class Book extends Model
         'pages',
         'rating',
         'quantity',
-        'published_date',
+        'published_year',
         'author_id',
         'publisher_id',
         'genre_id',
