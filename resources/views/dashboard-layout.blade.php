@@ -19,7 +19,7 @@
     @vite('resources/js/components/admin_sidebar.js')
 
 
-    {{-- page specific scripts --}}
+    {{-- page-specific scripts --}}
     @stack('book_page')
     @stack('student_page')
     @stack('librarian_page')
