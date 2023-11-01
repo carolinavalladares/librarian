@@ -1,3 +1,6 @@
+
+{{-- This is the dashboard side bar component, The javascript for this component is in /resources/js/components/admin_sidebar.js --}}
+
 <nav class="bg-white pt-5 shadow-md w-full md:w-fit md:min-h-[400px] md:min-w-[200px] md:py-5 ">
     <div class="flex flex-col ">
         <div class="flex items-center justify-between px-4 ">

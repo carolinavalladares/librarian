@@ -3,7 +3,7 @@ export const setUpSearchBar = () => {
     const searchInput = document.querySelector(".search_input");
     const seeAllBtn = document.querySelector(".all-btn");
 
-    // handle show or hide see all button
+    // handle show or hide see-all button, the see-all button will reset the page to show all records again after a search has been made
     if (window.location.href.includes("search")) {
         seeAllBtn.classList.remove("hidden");
     } else {

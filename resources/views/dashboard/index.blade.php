@@ -7,6 +7,7 @@
 
 @section('content')
     <section>
+        {{-- info cards --}}
       <div class="grid grid-cols-1 md:grid-cols-6 gap-2 items-center  mb-4">
         <div class=" col-span-2 w-full">
             <x-dashboard-card :iconSrc="'/assets/icons/librarians.svg'" :label="'Bibliotecários'" :route="'librarians'" :amount="$librarians" />
@@ -25,6 +26,7 @@
         </div>
       </div>
 
+      {{-- student chart --}}
       <div class="bg-white shadow-md p-4 ">
         <a title="estudantes" href="{{route('students')}}">
             <div class="flex items-center justify-between">

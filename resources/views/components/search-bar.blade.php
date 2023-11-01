@@ -1,6 +1,6 @@
 @props(['placeholder'=>$placeholder])
 
-
+{{-- This is the search bar component, this component's javascript code is in /resources/js/components/searchBar.js --}}
 
 <div class=" w-full max-w-full">
     <form class="search_form  bg-white shadow   px-2 h-9  flex items-center justify-center rounded-sm text-sm " method="GET">

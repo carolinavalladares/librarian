@@ -5,7 +5,7 @@ const hamburgerContainer = document.querySelector(".hamburger-container");
 
 let navOpen = false;
 
-// links highlight
+// set background color to active tab
 navLinks.forEach((link) => {
     link.classList.remove("bg-orange-200");
     const name = link.getAttribute("name");
@@ -17,7 +17,7 @@ navLinks.forEach((link) => {
     }
 });
 
-// mobile nav hamburger
+// mobile nav hamburger, handle open nav, close nav, and hamburger icon animation
 hambuergerBtn.addEventListener("click", () => {
     if (navOpen) {
         navList.classList.remove("max-h-[2000px]");

@@ -1,6 +1,8 @@
 @props(['student'=>$student])
 
 
+{{-- This is the student card component being rendered in the students page  --}}
+
 <div class="shadow-md bg-white p-4 mb-2 flex flex-col sm:block sm:justify-between sm:items-start">
 
      {{-- approved status flag --}}

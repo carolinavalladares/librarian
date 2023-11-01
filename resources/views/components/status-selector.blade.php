@@ -1,5 +1,7 @@
 @props(['student'=>$student])
 
+{{-- This component is rendered in the student details page and it allows for the user to change the student status --}}
+
 <div class="text-sm font-medium my-2">
     <span class="block text-sm font-medium">Mudar status:</span>
 

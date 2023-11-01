@@ -1,5 +1,7 @@
 @props(['student'=>$student, 'show-options'=> $showOptions])
 
+{{-- This component is the status flag component that is rendered in the student cards in the students page, according to the student status it will decide what color it should have and depending on the showOptions prop it will decide if it should or shouldn't show the approve/deny options  --}}
+
 <div>
     <div class="text-xs font-medium flex items-center justify-end gap-1">   
         @if ($student->approved)

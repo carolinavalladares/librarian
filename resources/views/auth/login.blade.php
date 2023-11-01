@@ -25,7 +25,6 @@
             @csrf
             @method('post')
     
-    
             <div class="flex flex-col mb-4">
                 <label class="mb-1 text-sm" for="email">Email:</label>
                 <input placeholder="Digite seu e-mail..." class="h-10 px-2 border text-sm" type="text" name="email" id="email">

@@ -1,3 +1,7 @@
+// ###########################################
+// This is the config file for chart.js, the chart is being used in the daashboard index page
+// ###########################################
+
 const chartContainer = document.querySelector(".chart_container");
 
 const students = JSON.parse(chartContainer.getAttribute("name"));
@@ -39,4 +43,3 @@ const studentChart = new Chart("studentChart", {
     type: "doughnut",
     data: data,
 });
-

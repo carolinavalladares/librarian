@@ -40,7 +40,7 @@ imageInput.addEventListener("click", (e) => {
     e.target.value = "";
 });
 
-// remover imagem
+// remove image
 removeBtn.addEventListener("click", () => {
     display.removeChild(display.children[0]);
     display.classList.add("hidden");

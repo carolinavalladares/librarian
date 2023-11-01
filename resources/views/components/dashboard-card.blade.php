@@ -1,5 +1,6 @@
 @props(['iconSrc'=>$iconSrc,'label'=>$label,'route'=>$route, 'amount'=>$amount])
 
+{{-- This is the cards that appear in dashboard index page --}}
 <a title="{{$label}}" class="w-full block" href="{{route($route)}}">
     <div class="p-4 bg-white shadow-md rounded-sm">
         <div class="flex items-center gap-2">
